@@ -3,11 +3,11 @@ project:
 
 book:
   title: "maclab"
-  author: "Jane Doe"
+  author: "Gregory Macfarlane"
   date: "1/17/2023"
   chapters:
     - index.qmd
-    - intro.qmd
+    - onboarding.qmd
     - summary.qmd
     - references.qmd
 

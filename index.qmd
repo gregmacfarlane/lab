@@ -1,9 +1,3 @@
-# Preface {.unnumbered}
+# Welcome! {.unnumbered}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+You have been hired into my lab, or are about to be hired in my lab. This website is a collection of resources that my students use to get trained and learn how to do things. It is also a helpful thing for me to remember all the things I have to do.
