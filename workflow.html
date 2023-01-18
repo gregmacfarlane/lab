@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Macfarlane Lab - 3&nbsp; Summary</title>
+<title>Macfarlane Lab - 2&nbsp; Project Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./workflow.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./onboarding.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Workflow</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -168,12 +168,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Workflow</span></a>
+  <a href="./workflow.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Workflow</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,14 +186,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">2.1</span>  Motivation</a></li>
+  <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects"><span class="toc-section-number">2.2</span>  R Projects</a></li>
+  <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github"><span class="toc-section-number">2.3</span>  Git and GitHub</a></li>
+  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="toc-section-number">2.4</span>  Targets</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Workflow</span></h1>
 </div>
 
 
@@ -208,15 +217,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>In summary, this book has no content whatsoever.</p>
+<p>Most of my academic work uses R and R markdown (or more recently, Quarto) as a backbone.</p>
+<section id="motivation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.1</span> Motivation</h2>
+<p>The goal of this workflow is to allow you to work effectively in my lab, and to ensure that I and future students (including yourself!) know where things are and can rebuild them if necessary. For example, a peer reviewer may ask for changes to the analysis many months after you are gone. If you follow this workflow, the chances of me being able to productively use your work increase.</p>
+<p>A workflow that you have probably used in the past consists of:</p>
+<ul>
+<li><p>Keep data in a spreadsheet (Excel)</p></li>
+<li><p>Do your analysis in the same spreadsheet</p></li>
+<li><p>Copy a table or numbers from a spreadsheet into a document (Word)</p></li>
+<li><p>Write about the analysis in Word</p></li>
+</ul>
+<p>This workflow has its benefits, mainly simplicity. Excel definitely has its place. But there are <em>lots</em> of drawbacks.</p>
+<p>First, spreadsheets tend to hide formulae or make them very difficult to read. For example, <a href="https://www.forbes.com/sites/tomgroenfeldt/2013/02/19/solutions-to-spreadsheet-risk-post-jpms-london-whale/?sh=1e4fd67d4a26">JP Morgan Chase bank lost almost $6 Billion when a trader believed a formula in an excel spreadsheet</a> that he couldn’t see the error in, because the formula wasn’t shown. It would be better to have clearly written methods and analysis, than to just show the numbers that go in that analysis.</p>
+<p>Second, this method can rely on lots of manual tasks: push this button, copy this figure, update this number. Doing it once is easy, but what if I ask you to go back and change something? Will you remember every table that depends on that calculation? Or what if you leave and another student has to figure out what you did? It would be better to have a reproducible document that re-builds itself whenever the analysis changes.</p>
+<p>This is the problem that R and R markdown solves. For example, I can embed R code into this document. I can load a library, read a dataset, and create a figure all at once.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workflow_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>And if I tell you that I’d rather see a different figure, you can just change the code and it will print something different</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workflow_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>So, how do you make this happen?</p>
+</section>
+<section id="r-projects" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="r-projects"><span class="header-section-number">2.2</span> R Projects</h2>
+<p>The basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an <code>.Rproj</code> file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>.</p>
+<p>The R project folder should be organized into these subfolders as follows:</p>
+<pre><code>&lt;project&gt;/
+  - README.md
+  - &lt;project.Rproj&gt;
+  - data/
+  - R/
+  - py/
+  - ....</code></pre>
+<ul>
+<li><p><code>README.md</code> is a markdown file that describes what the project is about. What is the central question, who is the project sponsor, and what other data resources might need to be referenced in the project.</p></li>
+<li><p><code>data/</code> is the folder where you place all of your input or intermediate data. There may be subfolders in this folder. Preference is for plain text (csv or json) data over data stored in spreadsheets or binary formats. If you get data from the internet, it might be better to write code to download the data instead of storing the downloaded data. That would be more reproducible.</p></li>
+<li><p><code>R/</code> is a folder where you write your R scripts. Each script should be clearly named, e.g., <code>data_cleaning.R</code> .</p></li>
+<li><p><code>py/</code> is a folder where you write your python scripts. Each script should be clearly named, e.g., <code>data_cleaning.py</code> .</p></li>
+</ul>
+<p>Other folders might be useful, but should be carefully named and organized.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Additionally, it might be a good idea to put <code>README</code> file in some of the sub-folders if the information in them might need more explanation.</p>
+<blockquote class="blockquote">
+<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D">R: Essential Training: Wrangling and Visualizing Data</a> shows how to implement this</p>
+<p>For an introduction to installing R and R Studio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>. Follow along with the tutorial if you are new to R and R Studio.</p>
+<p>If you are curious about projects, <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">there is a helpful R Studio resource page</a> with instructions on how they work.</p>
+</blockquote>
+</section>
+<section id="git-and-github" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="git-and-github"><span class="header-section-number">2.3</span> Git and GitHub</h2>
+</section>
+<section id="targets" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.4</span> Targets</h2>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A more detailed and robust description of an R project folder is <a href="https://www.chrisvoncsefalvay.com/2018/08/09/structuring-r-projects/">here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -354,13 +426,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workflow.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Workflow</span></span>
+      <a href="./onboarding.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Onboarding</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
