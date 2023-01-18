@@ -2,12 +2,13 @@ project:
   type: book
 
 book:
-  title: "maclab"
+  title: "Macfarlane Lab"
   author: "Gregory Macfarlane"
   date: "1/17/2023"
   chapters:
     - index.qmd
     - onboarding.qmd
+    - workflow.qmd
     - summary.qmd
     - references.qmd
 
