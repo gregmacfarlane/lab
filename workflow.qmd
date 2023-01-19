@@ -24,7 +24,7 @@ Second, this method can rely on lots of manual tasks: push this button, copy thi
 
 This is the problem that R and R markdown solves. For example, I can embed R code into this document. I can load a library, read a dataset, and create a figure all at once.
 
-```{r}
+```{r first_plot}
 library(ggplot2)
 
 ggplot(mpg, aes(displ, hwy, colour = class)) + 
@@ -33,7 +33,7 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 
 And if I tell you that I'd rather see a different figure, you can just change the code and it will print something different
 
-```{r}
+```{r second_plot}
 ggplot(mpg, aes(hwy, fill = class)) + 
   geom_density(alpha = 0.5) + theme_bw()
 ```
