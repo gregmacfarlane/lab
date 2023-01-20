@@ -193,7 +193,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">2.1</span>  Motivation</a></li>
   <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects"><span class="toc-section-number">2.2</span>  R Projects</a></li>
   <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github"><span class="toc-section-number">2.3</span>  Git and GitHub</a></li>
-  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="toc-section-number">2.4</span>  Targets</a></li>
+  <li><a href="#box" id="toc-box" class="nav-link" data-scroll-target="#box"><span class="toc-section-number">2.4</span>  Box</a></li>
+  <li><a href="#r-markdown-quarto" id="toc-r-markdown-quarto" class="nav-link" data-scroll-target="#r-markdown-quarto"><span class="toc-section-number">2.5</span>  R Markdown / Quarto</a></li>
+  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="toc-section-number">2.6</span>  Targets</a></li>
   </ul>
 </nav>
     </div>
@@ -238,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="workflow_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="workflow_files/figure-html/first_plot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>And if I tell you that I’d rather see a different figure, you can just change the code and it will print something different</p>
@@ -246,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="workflow_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="workflow_files/figure-html/second_plot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>So, how do you make this happen?</p>
@@ -268,18 +270,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>R/</code> is a folder where you write your R scripts. Each script should be clearly named, e.g., <code>data_cleaning.R</code> .</p></li>
 <li><p><code>py/</code> is a folder where you write your python scripts. Each script should be clearly named, e.g., <code>data_cleaning.py</code> .</p></li>
 </ul>
+<p>When you type a path in a script, it should reference its location <em>relative to the folder root</em>. So a script in <code>R/clean_data.R</code> might look like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data from folder</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/my_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This lets other people who work on your project use it without changing all the paths to the all the files that you use. Or as Jenny Bryan put it,</p>
+<blockquote class="blockquote">
+<p>If the first line of your #rstats script is<code>setwd("C:\Users\jenny\path\that\only\I\have")</code>, I will come into your lab and SET YOUR COMPUTER ON FIRE.</p>
+</blockquote>
 <p>Other folders might be useful, but should be carefully named and organized.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Additionally, it might be a good idea to put <code>README</code> file in some of the sub-folders if the information in them might need more explanation.</p>
 <blockquote class="blockquote">
-<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D">R: Essential Training: Wrangling and Visualizing Data</a> shows how to implement this</p>
+<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D">R: Essential Training: Wrangling and Visualizing Data</a> shows how to implement this folder structure and an R Studio project</p>
 <p>For an introduction to installing R and R Studio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>. Follow along with the tutorial if you are new to R and R Studio.</p>
 <p>If you are curious about projects, <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">there is a helpful R Studio resource page</a> with instructions on how they work.</p>
 </blockquote>
 </section>
 <section id="git-and-github" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="git-and-github"><span class="header-section-number">2.3</span> Git and GitHub</h2>
+<p>Your project directory should be a git repository that is posted to GitHub.</p>
+<p>Git is software that tracks changes to plain text documents line-by-line, over time. It also provides robust methods for merging conflicting documents written by different users. No longer will you need to have a folder that contains the following:</p>
+<pre><code>my_document.docx
+my_document edits from advisor.docx
+my_document final.docx
+my_documentREALLYFINAL.docx
+my_documentREALLYFINAL_edits from advisor.docx</code></pre>
+<p>When used correctly with good commit messages, git can serve as an excellent lab notebook for the project. Some basic rules for working with git:</p>
+<ul>
+<li><p><strong>Commit regularly</strong> Keep your working directory clean! Don’t let dozens of different changes pile up between commits</p></li>
+<li><p><strong>Write good messages</strong> A good commit message will help you and me trace what is going on, and see what matters. A primer on writing good messages is <a href="https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/">here</a>; learn this and do it consistently!</p></li>
+<li><p><strong>Ignore files correctly</strong> If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.</p></li>
+</ul>
+<p>GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the <a href="https://github.com/byu-transpolab">BYU-Transpolab organization</a>. Repositories can be public if possible or private if necessary.</p>
+<blockquote class="blockquote">
+<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-git-and-github-14213624%3Ftrk%3Dshare_ent_url%26shareId%3DMbR%252FIb35SFSq%252BWIOnc2cxQ%253D%253D">Learning Git and Github</a> provides a clear tutorial with installation instructions and basic commands.</p>
+<p>Jenny Bryan has an excellent book / course on using Git and GitHub with R, <a href="https://happygitwithr.com/index.html">called Happy Git and GitHub for the userR</a>. Follow these instructions.</p>
+</blockquote>
 </section>
-<section id="targets" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.4</span> Targets</h2>
+<section id="box" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="box"><span class="header-section-number">2.4</span> Box</h2>
+<p>There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents, for example cannot be tracked line-by-line. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).</p>
+<p>BYU has given you free access to unlimited space on Box.</p>
+</section>
+<section id="r-markdown-quarto" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="r-markdown-quarto"><span class="header-section-number">2.5</span> R Markdown / Quarto</h2>
+</section>
+<section id="targets" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.6</span> Targets</h2>
+<p>For small projects where all the calculations can occur on render, it makes sense to just have</p>
 
 
 </section>

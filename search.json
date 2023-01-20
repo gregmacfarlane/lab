@@ -39,21 +39,35 @@
     "href": "workflow.html#r-projects",
     "title": "2  Project Workflow",
     "section": "2.2 R Projects",
-    "text": "2.2 R Projects\nThe basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an .Rproj file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a tutorial at DataCamp.\nThe R project folder should be organized into these subfolders as follows:\n<project>/\n  - README.md\n  - <project.Rproj>\n  - data/\n  - R/\n  - py/\n  - ....\n\nREADME.md is a markdown file that describes what the project is about. What is the central question, who is the project sponsor, and what other data resources might need to be referenced in the project.\ndata/ is the folder where you place all of your input or intermediate data. There may be subfolders in this folder. Preference is for plain text (csv or json) data over data stored in spreadsheets or binary formats. If you get data from the internet, it might be better to write code to download the data instead of storing the downloaded data. That would be more reproducible.\nR/ is a folder where you write your R scripts. Each script should be clearly named, e.g., data_cleaning.R .\npy/ is a folder where you write your python scripts. Each script should be clearly named, e.g., data_cleaning.py .\n\nOther folders might be useful, but should be carefully named and organized.1 Additionally, it might be a good idea to put README file in some of the sub-folders if the information in them might need more explanation.\n\nThe LinkedIn Learning Course R: Essential Training: Wrangling and Visualizing Data shows how to implement this\nFor an introduction to installing R and R Studio, there is a tutorial at DataCamp. Follow along with the tutorial if you are new to R and R Studio.\nIf you are curious about projects, there is a helpful R Studio resource page with instructions on how they work."
+    "text": "2.2 R Projects\nThe basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an .Rproj file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a tutorial at DataCamp.\nThe R project folder should be organized into these subfolders as follows:\n<project>/\n  - README.md\n  - <project.Rproj>\n  - data/\n  - R/\n  - py/\n  - ....\n\nREADME.md is a markdown file that describes what the project is about. What is the central question, who is the project sponsor, and what other data resources might need to be referenced in the project.\ndata/ is the folder where you place all of your input or intermediate data. There may be subfolders in this folder. Preference is for plain text (csv or json) data over data stored in spreadsheets or binary formats. If you get data from the internet, it might be better to write code to download the data instead of storing the downloaded data. That would be more reproducible.\nR/ is a folder where you write your R scripts. Each script should be clearly named, e.g., data_cleaning.R .\npy/ is a folder where you write your python scripts. Each script should be clearly named, e.g., data_cleaning.py .\n\nWhen you type a path in a script, it should reference its location relative to the folder root. So a script in R/clean_data.R might look like this:\n# read data from folder\ndata <- read_csv(\"data/my_data.csv\")\nThis lets other people who work on your project use it without changing all the paths to the all the files that you use. Or as Jenny Bryan put it,\n\nIf the first line of your #rstats script issetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\"), I will come into your lab and SET YOUR COMPUTER ON FIRE.\n\nOther folders might be useful, but should be carefully named and organized.1 Additionally, it might be a good idea to put README file in some of the sub-folders if the information in them might need more explanation.\n\nThe LinkedIn Learning Course R: Essential Training: Wrangling and Visualizing Data shows how to implement this folder structure and an R Studio project\nFor an introduction to installing R and R Studio, there is a tutorial at DataCamp. Follow along with the tutorial if you are new to R and R Studio.\nIf you are curious about projects, there is a helpful R Studio resource page with instructions on how they work."
   },
   {
     "objectID": "workflow.html#git-and-github",
     "href": "workflow.html#git-and-github",
     "title": "2  Project Workflow",
     "section": "2.3 Git and GitHub",
-    "text": "2.3 Git and GitHub"
+    "text": "2.3 Git and GitHub\nYour project directory should be a git repository that is posted to GitHub.\nGit is software that tracks changes to plain text documents line-by-line, over time. It also provides robust methods for merging conflicting documents written by different users. No longer will you need to have a folder that contains the following:\nmy_document.docx\nmy_document edits from advisor.docx\nmy_document final.docx\nmy_documentREALLYFINAL.docx\nmy_documentREALLYFINAL_edits from advisor.docx\nWhen used correctly with good commit messages, git can serve as an excellent lab notebook for the project. Some basic rules for working with git:\n\nCommit regularly Keep your working directory clean! Don’t let dozens of different changes pile up between commits\nWrite good messages A good commit message will help you and me trace what is going on, and see what matters. A primer on writing good messages is here; learn this and do it consistently!\nIgnore files correctly If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.\n\nGitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the BYU-Transpolab organization. Repositories can be public if possible or private if necessary.\n\nThe LinkedIn Learning Course Learning Git and Github provides a clear tutorial with installation instructions and basic commands.\nJenny Bryan has an excellent book / course on using Git and GitHub with R, called Happy Git and GitHub for the userR. Follow these instructions."
+  },
+  {
+    "objectID": "workflow.html#box",
+    "href": "workflow.html#box",
+    "title": "2  Project Workflow",
+    "section": "2.4 Box",
+    "text": "2.4 Box\nThere are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents, for example cannot be tracked line-by-line. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).\nBYU has given you free access to unlimited space on Box."
+  },
+  {
+    "objectID": "workflow.html#r-markdown-quarto",
+    "href": "workflow.html#r-markdown-quarto",
+    "title": "2  Project Workflow",
+    "section": "2.5 R Markdown / Quarto",
+    "text": "2.5 R Markdown / Quarto"
   },
   {
     "objectID": "workflow.html#targets",
     "href": "workflow.html#targets",
     "title": "2  Project Workflow",
-    "section": "2.4 Targets",
-    "text": "2.4 Targets"
+    "section": "2.6 Targets",
+    "text": "2.6 Targets\nFor small projects where all the calculations can occur on render, it makes sense to just have"
   },
   {
     "objectID": "summary.html",
