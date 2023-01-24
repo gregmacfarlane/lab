@@ -195,7 +195,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github"><span class="toc-section-number">2.3</span>  Git and GitHub</a></li>
   <li><a href="#box" id="toc-box" class="nav-link" data-scroll-target="#box"><span class="toc-section-number">2.4</span>  Box</a></li>
   <li><a href="#r-markdown-quarto" id="toc-r-markdown-quarto" class="nav-link" data-scroll-target="#r-markdown-quarto"><span class="toc-section-number">2.5</span>  R Markdown / Quarto</a></li>
-  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="toc-section-number">2.6</span>  Targets</a></li>
+  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="toc-section-number">2.6</span>  Targets</a>
+  <ul class="collapse">
+  <li><a href="#targets-and-box-files" id="toc-targets-and-box-files" class="nav-link" data-scroll-target="#targets-and-box-files"><span class="toc-section-number">2.6.1</span>  Targets and Box files</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -309,22 +312,111 @@ my_documentREALLYFINAL_edits from advisor.docx</code></pre>
 <h2 data-number="2.4" class="anchored" data-anchor-id="box"><span class="header-section-number">2.4</span> Box</h2>
 <p>There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents and power point presentations — for example — cannot be tracked line-by-line with Git. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).</p>
 <p>BYU has given you free access to unlimited space on Box. I may create a folder that you use for a project, or you might create a folder and invite me to it. Folders should be organized with the same <code>data/</code> <code>README</code>, etc. file structure as described in <a href="#sec-r-projects">R Projects</a>.</p>
-<p>If your project uses large data that cannot be stored in Git, I recommend</p>
+<p>If your project uses large data that cannot be stored in Git, I recommend including a script that will download a file from Box directly into your local <code>data/</code> folder.</p>
 </section>
 <section id="r-markdown-quarto" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="r-markdown-quarto"><span class="header-section-number">2.5</span> R Markdown / Quarto</h2>
 <p>R Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown. This includes things like the <a href="https://byu-transpolab.github.io/ceen361/">textbook for CE 361</a> and a <a href="https://byu-transpolab.github.io/alameda_destinationchoice/">number of my academic papers</a>. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.</p>
 <p>A newer technology called Quarto somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive <a href="https://quarto.org/docs/guide/">authoring guide to Quarto</a>; read this guide and refer to it.</p>
 <blockquote class="blockquote">
-<p>I have written a <a href="https://github.com/byu-transpolab/template_bookdown">template GitHub repository</a> that generates a bookdown website and Elsevier journal article. I hope to create a similar template for quarto in the near future.</p>
+<p>I have written a <a href="https://github.com/byu-transpolab/template_bookdown">template GitHub repository</a> that generates a bookdown website and Elsevier journal article. I hope to create a similar template for Quarto in the near future.</p>
+<p>Using the <a href="https://github.com/gregmacfarlane/cosmodown">cosmodown</a> package, you can set up a template to make your BYU Engineering thesis in bookdown. A Quarto template may come soon.</p>
 <p>A linkedin Learning Course, <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D">Creating Reports and Presentations with R Markdown and RStudio</a> will help you learn these techniques.</p>
 </blockquote>
 </section>
 <section id="targets" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.6</span> Targets</h2>
-<p>For small projects where all the calculations can occur on render, it makes sense to just have all the code embedded in the document. Many time</p>
+<p>One reason to script your work instead of use button-pushing software is so you can repeat it. But while you are working, it sometimes becomes difficult to remember which sections of your code you have to re-run when you update something. It also might take a long time to re-run your analysis if you have costly steps.</p>
+<p>For small projects where all the calculations can occur on render, it makes sense to just have all the code embedded in the document. Many times, however, you will have heavy calculations that you don’t want to run every time you typeset your document. The <a href="https://books.ropensci.org/targets/"><code>targets</code></a> package allows you to build a pipeline that runs your work in order and keeps track of what has been run and what has not been run. The core of targets is a <code>_targets.R</code> R script that looks something like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _targets.R file</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/functions.R"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_option_set</span>(<span class="at">packages =</span> <span class="fu">c</span>(<span class="st">"readr"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Start with data --------</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># format = "file" means that every time data.csv changes, pipeline will run </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># again</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(file, <span class="st">"data.csv"</span>, <span class="at">format =</span> <span class="st">"file"</span>),  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read data into workspace</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(data, <span class="fu">get_data</span>(file)),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fit model based on data</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(model, <span class="fu">fit_model</span>(data)),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make a plot based on the model</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(plot, <span class="fu">plot_model</span>(model, data))</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the <code>R/functions.R</code> file, there will be functions called <code>get_data</code> , <code>fit_model</code>, and <code>plot_model</code> that tell R what to do. When you run <code>tar_make()</code> in your R project, it will run all four steps. But if you change <code>fit_model()</code> and run <code>tar_make()</code> again, targets knows to skip the <code>file</code> and <code>data</code> because those have not changed.</p>
+<p>Targets works by storing intermediate objects in a folder called <code>_targets/</code>. You should ignore this file from your GitHub repository.</p>
+<section id="targets-and-box-files" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="targets-and-box-files"><span class="header-section-number">2.6.1</span> Targets and Box files</h3>
+<p>Targets is a great way to link large files stored on Box and an R project. Say that <code>data.csv</code> from the example above is too large to commit to GitHub. We could change the target to be</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with data --------</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># format = "file" means that every time data.csv changes, pipeline will run </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># again</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_target</span>(file, <span class="fu">fetch_file</span>(<span class="st">"data.csv"</span>), <span class="at">format =</span> <span class="st">"file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And then write a function that downloads the appropriate file from Box,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Get data file from Box</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param file Path to file</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>fetch_file <span class="ot">&lt;-</span> <span class="cf">function</span>(file){</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check if file is already here for some reason</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(file)){</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the location for the direct download from box.</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(<span class="st">"https://byu.box.com/shared/static/&lt;code&gt;.csv"</span>, file)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"File already exists"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># targets has to return something, in this case the path to the file</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(file)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The Box code must be the link for the direct download. Please <a href="https://support.box.com/hc/en-us/articles/360043697554-Configuring-Individual-Shared-Link-Settings">see the Box manual</a> for instructions on creating and using this link.</p>
+<p>Note that you should not use the above method for data objects that must be protected. Instead, you could prompt the user to go to a URL and then they could download the file themselves if they had access to the box folder. Not automatically reproducible with one click, but it prompts people to go to the right place. The function below shows how to do this.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Get streetlight data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param path Path to folder containing streetlight data files</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param landuse One of "libraries", "parks" or "groceries" indicating which </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'   land use streetlight file to download</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#'   </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details We are unable to distribute the streetlight data files. This</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#'  function prompts the user to navigate to the folder on box, download </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#'  the file, and save it in the proper place before moving forward.</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>get_sl_data <span class="ot">&lt;-</span> <span class="cf">function</span>(path, landuse){</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  urls <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"libraries"</span> <span class="ot">=</span> <span class="st">"https://byu.box.com/s/&lt;code&gt;"</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"parks"</span>     <span class="ot">=</span> <span class="st">"https://byu.box.com/s/&lt;code&gt;"</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"groceries"</span> <span class="ot">=</span> <span class="st">"https://byu.box.com/s/&lt;code&gt;"</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  files <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"libraries"</span> <span class="ot">=</span> <span class="st">"160756_Libraries_home_block_groups_all.csv"</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"parks"</span>     <span class="ot">=</span> <span class="st">"streetlight_parks.zip"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"groceries"</span> <span class="ot">=</span> <span class="st">"256055_Grocery_Stores_Utah_County_2019_home_block_groups_all.csv"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(path)){</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="fu">str_c</span>(</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"You need to download a file on Box.</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1. Go to "</span>, urls[[landuse]], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2. Log in to Box, and download the file.</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3. Copy the file to "</span>, path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4. Run tar_make() again."</span>))</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(path, <span class="st">" not Found"</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(path, <span class="st">" available"</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(path) <span class="co"># to use file target, need to return path to data. </span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
