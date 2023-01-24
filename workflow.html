@@ -191,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">2.1</span>  Motivation</a></li>
-  <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects"><span class="toc-section-number">2.2</span>  R Projects</a></li>
+  <li><a href="#sec-r-projects" id="toc-sec-r-projects" class="nav-link" data-scroll-target="#sec-r-projects"><span class="toc-section-number">2.2</span>  R Projects</a></li>
   <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github"><span class="toc-section-number">2.3</span>  Git and GitHub</a></li>
   <li><a href="#box" id="toc-box" class="nav-link" data-scroll-target="#box"><span class="toc-section-number">2.4</span>  Box</a></li>
   <li><a href="#r-markdown-quarto" id="toc-r-markdown-quarto" class="nav-link" data-scroll-target="#r-markdown-quarto"><span class="toc-section-number">2.5</span>  R Markdown / Quarto</a></li>
@@ -253,8 +253,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>So, how do you make this happen?</p>
 </section>
-<section id="r-projects" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="r-projects"><span class="header-section-number">2.2</span> R Projects</h2>
+<section id="sec-r-projects" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-r-projects"><span class="header-section-number">2.2</span> R Projects</h2>
 <p>The basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an <code>.Rproj</code> file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>.</p>
 <p>The R project folder should be organized into these subfolders as follows:</p>
 <pre><code>&lt;project&gt;/
@@ -299,7 +299,7 @@ my_documentREALLYFINAL_edits from advisor.docx</code></pre>
 <li><p><strong>Write good messages</strong> A good commit message will help you and me trace what is going on, and see what matters. A primer on writing good messages is <a href="https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/">here</a>; learn this and do it consistently!</p></li>
 <li><p><strong>Ignore files correctly</strong> If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.</p></li>
 </ul>
-<p>GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the <a href="https://github.com/byu-transpolab">BYU-Transpolab organization</a>. Repositories can be public if possible or private if necessary.</p>
+<p>GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the <a href="https://github.com/byu-transpolab">BYU-Transpolab organization</a>. Repositories can be public if possible or private if necessary; speak to me about what your project requires.</p>
 <blockquote class="blockquote">
 <p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-git-and-github-14213624%3Ftrk%3Dshare_ent_url%26shareId%3DMbR%252FIb35SFSq%252BWIOnc2cxQ%253D%253D">Learning Git and Github</a> provides a clear tutorial with installation instructions and basic commands.</p>
 <p>Jenny Bryan has an excellent book / course on using Git and GitHub with R, <a href="https://happygitwithr.com/index.html">called Happy Git and GitHub for the userR</a>. Follow these instructions.</p>
@@ -307,15 +307,22 @@ my_documentREALLYFINAL_edits from advisor.docx</code></pre>
 </section>
 <section id="box" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="box"><span class="header-section-number">2.4</span> Box</h2>
-<p>There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents, for example cannot be tracked line-by-line. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).</p>
-<p>BYU has given you free access to unlimited space on Box.</p>
+<p>There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents and power point presentations — for example — cannot be tracked line-by-line with Git. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).</p>
+<p>BYU has given you free access to unlimited space on Box. I may create a folder that you use for a project, or you might create a folder and invite me to it. Folders should be organized with the same <code>data/</code> <code>README</code>, etc. file structure as described in <a href="#sec-r-projects">R Projects</a>.</p>
+<p>If your project uses large data that cannot be stored in Git, I recommend</p>
 </section>
 <section id="r-markdown-quarto" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="r-markdown-quarto"><span class="header-section-number">2.5</span> R Markdown / Quarto</h2>
+<p>R Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown. This includes things like the <a href="https://byu-transpolab.github.io/ceen361/">textbook for CE 361</a> and a <a href="https://byu-transpolab.github.io/alameda_destinationchoice/">number of my academic papers</a>. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.</p>
+<p>A newer technology called Quarto somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive <a href="https://quarto.org/docs/guide/">authoring guide to Quarto</a>; read this guide and refer to it.</p>
+<blockquote class="blockquote">
+<p>I have written a <a href="https://github.com/byu-transpolab/template_bookdown">template GitHub repository</a> that generates a bookdown website and Elsevier journal article. I hope to create a similar template for quarto in the near future.</p>
+<p>A linkedin Learning Course, <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D">Creating Reports and Presentations with R Markdown and RStudio</a> will help you learn these techniques.</p>
+</blockquote>
 </section>
 <section id="targets" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.6</span> Targets</h2>
-<p>For small projects where all the calculations can occur on render, it makes sense to just have</p>
+<p>For small projects where all the calculations can occur on render, it makes sense to just have all the code embedded in the document. Many time</p>
 
 
 </section>
