@@ -1,6 +1,16 @@
 # Project Workflow
 
-Most of my academic work uses R and R markdown (or more recently, Quarto) as a backbone.
+Most of my academic work uses R and R markdown (or more recently, Quarto) as a backbone. To summarize:
+
+-   Create an R project as the hub of the project.
+
+-   Track the project development using git and GitHub. [Manual here](https://happygitwithr.com).
+
+-   Write a document in Quarto or Bookdown. [Manual here](https://quarto.org/docs/guide/).
+
+-   If heavy analysis is needed, use Targets. [Manual here](https://books.ropensci.org/targets/).
+
+-   If externally stored files are necessary, use Box.
 
 ## Motivation
 
@@ -40,7 +50,7 @@ ggplot(mpg, aes(hwy, fill = class)) +
 
 So, how do you make this happen?
 
-## R Projects
+## R Projects {#sec-r-projects}
 
 The basis of every project --- a paper, thesis, or report --- should be an R project. An R project is a folder associated with an `.Rproj` file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a [tutorial at DataCamp](https://www.datacamp.com/tutorial/r-studio-tutorial).
 
@@ -103,7 +113,7 @@ When used correctly with good commit messages, git can serve as an excellent lab
 
 -   **Ignore files correctly** If it is a file that you actually worked on, then it should be committed and tracked. But if you don't know what it is, then there's a good chance that it was created as a byproduct and should be ignored. You don't want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.
 
-GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the [BYU-Transpolab organization](https://github.com/byu-transpolab). Repositories can be public if possible or private if necessary.
+GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the [BYU-Transpolab organization](https://github.com/byu-transpolab). Repositories can be public if possible or private if necessary; speak to me about what your project requires.
 
 > The LinkedIn Learning Course [Learning Git and Github](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-git-and-github-14213624%3Ftrk%3Dshare_ent_url%26shareId%3DMbR%252FIb35SFSq%252BWIOnc2cxQ%253D%253D) provides a clear tutorial with installation instructions and basic commands.
 >
@@ -111,12 +121,130 @@ GitHub is a web service that hosts git repositories, allowing git users to share
 
 ## Box
 
-There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents, for example cannot be tracked line-by-line. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).
+There are some kinds of documents that do not lend themselves very naturally to Git/ GitHub. Word documents and power point presentations --- for example --- cannot be tracked line-by-line with Git. GitHub also has a 50 MB soft file size limit (and a 100 MB hard limit).
 
-BYU has given you free access to unlimited space on Box.
+BYU has given you free access to unlimited space on Box. I may create a folder that you use for a project, or you might create a folder and invite me to it. Folders should be organized with the same `data/` `README`, etc. file structure as described in [R Projects](#sec-r-projects).
+
+If your project uses large data that cannot be stored in Git, I recommend including a script that will download a file from Box directly into your local `data/` folder.
 
 ## R Markdown / Quarto
 
+R Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown. This includes things like the [textbook for CE 361](https://byu-transpolab.github.io/ceen361/) and a [number of my academic papers](https://byu-transpolab.github.io/alameda_destinationchoice/). One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.
+
+A newer technology called Quarto somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive [authoring guide to Quarto](https://quarto.org/docs/guide/); read this guide and refer to it.
+
+> I have written a [template GitHub repository](https://github.com/byu-transpolab/template_bookdown) that generates a bookdown website and Elsevier journal article. I hope to create a similar template for Quarto in the near future.
+>
+> Using the [cosmodown](https://github.com/gregmacfarlane/cosmodown) package, you can set up a template to make your BYU Engineering thesis in bookdown. A Quarto template may come soon.
+>
+> A linkedin Learning Course, [Creating Reports and Presentations with R Markdown and RStudio](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D) will help you learn these techniques.
+
 ## Targets
 
-For small projects where all the calculations can occur on render, it makes sense to just have
+One reason to script your work instead of use button-pushing software is so you can repeat it. But while you are working, it sometimes becomes difficult to remember which sections of your code you have to re-run when you update something. It also might take a long time to re-run your analysis if you have costly steps.
+
+For small projects where all the calculations can occur on render, it makes sense to just have all the code embedded in the document. Many times, however, you will have heavy calculations that you don't want to run every time you typeset your document. The [`targets`](https://books.ropensci.org/targets/) package allows you to build a pipeline that runs your work in order and keeps track of what has been run and what has not been run. The core of targets is a `_targets.R` R script that looks something like this:
+
+``` r
+# _targets.R file
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+list(
+  # Start with data --------
+  # format = "file" means that every time data.csv changes, pipeline will run 
+  # again
+  tar_target(file, "data.csv", format = "file"),  
+  
+  # Read data into workspace
+  tar_target(data, get_data(file)),
+  
+  # fit model based on data
+  tar_target(model, fit_model(data)),
+  
+  # make a plot based on the model
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+In the `R/functions.R` file, there will be functions called `get_data` , `fit_model`, and `plot_model` that tell R what to do. When you run `tar_make()` in your R project, it will run all four steps. But if you change `fit_model()` and run `tar_make()` again, targets knows to skip the `file` and `data` because those have not changed.
+
+Targets works by storing intermediate objects in a folder called `_targets/`. You should ignore this file from your GitHub repository.
+
+### Targets and Box files
+
+Targets is a great way to link large files stored on Box and an R project. Say that `data.csv` from the example above is too large to commit to GitHub. We could change the target to be
+
+``` r
+# Start with data --------
+# format = "file" means that every time data.csv changes, pipeline will run 
+# again
+tar_target(file, fetch_file("data.csv"), format = "file")
+```
+
+And then write a function that downloads the appropriate file from Box,
+
+``` r
+#' Get data file from Box
+#' 
+#' @param file Path to file
+#' 
+fetch_file <- function(file){
+  # check if file is already here for some reason
+  if(!file.exists(file)){
+    # get the location for the direct download from box.
+    download.file("https://byu.box.com/shared/static/<code>.csv", file)
+  } else {
+    message("File already exists")
+  }
+  
+  # targets has to return something, in this case the path to the file
+  return(file)
+}
+```
+
+The Box code must be the link for the direct download. Please [see the Box manual](https://support.box.com/hc/en-us/articles/360043697554-Configuring-Individual-Shared-Link-Settings) for instructions on creating and using this link.
+
+Note that you should not use the above method for data objects that must be protected. Instead, you could prompt the user to go to a URL and then they could download the file themselves if they had access to the box folder. Not automatically reproducible with one click, but it prompts people to go to the right place. The function below shows how to do this.
+
+``` r
+#' Get streetlight data
+#' 
+#' @param path Path to folder containing streetlight data files
+#' @param landuse One of "libraries", "parks" or "groceries" indicating which 
+#'   land use streetlight file to download
+#'   
+#' @details We are unable to distribute the streetlight data files. This
+#'  function prompts the user to navigate to the folder on box, download 
+#'  the file, and save it in the proper place before moving forward.
+#' 
+#' 
+get_sl_data <- function(path, landuse){
+  
+  urls <- list(
+    "libraries" = "https://byu.box.com/s/<code>",
+    "parks"     = "https://byu.box.com/s/<code>",
+    "groceries" = "https://byu.box.com/s/<code>"
+  )
+  
+  files <- list(
+    "libraries" = "160756_Libraries_home_block_groups_all.csv",
+    "parks"     = "streetlight_parks.zip",
+    "groceries" = "256055_Grocery_Stores_Utah_County_2019_home_block_groups_all.csv"
+  )
+  
+  if(!file.exists(path)){
+    message(str_c(
+      "You need to download a file on Box.\n",
+      "1. Go to ", urls[[landuse]], "\n",
+      "2. Log in to Box, and download the file.\n", 
+      "3. Copy the file to ", path, "\n",
+      "4. Run tar_make() again."))
+    stop(path, " not Found")
+  } else {
+    message(path, " available")
+  }
+  return(path) # to use file target, need to return path to data. 
+  
+}
+```
