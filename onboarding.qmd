@@ -6,9 +6,9 @@ The process to onboard in my lab is:
 
 2.  I send a message to Jolene Johnson in the department office to begin the process to hire you.
 
-3.  Join the [BYU Transportation Lab Slack workspace](https://join.slack.com/t/byu-transpolab/shared_invite/zt-1nejeylj9-E036BYw4IQMdoQo_FPr_ng)
+3.  Join the [BYU Transportation Lab Slack workspace](https://join.slack.com/t/byu-transpolab/shared_invite/zt-1nejeylj9-E036BYw4IQMdoQo_FPr_ng). Get a picture[^onboarding-1] to use for your avatar on Slack.
 
-4.  You create a GitHub account (if you don't already have one), and send me your username.
+4.  You create a GitHub account (if you don't already have one), and send me your username. Get a picture[^onboarding-2] to use for your avatar on GitHub.
 
 5.  I add you to the [BYU-Transpolab](https://github.com/byu-transpolab) github organization.
 
@@ -21,6 +21,10 @@ The process to onboard in my lab is:
     -   I will tell you when your access expires; please mark this date down and ask me to extend it if you are still working for me
 
 9.  You begin working!
+
+[^onboarding-1]: This can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever. Just not a blank image.
+
+[^onboarding-2]: This can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever. Just not the default block avatar.
 
 ## Working hours
 
