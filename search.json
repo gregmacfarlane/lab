@@ -67,7 +67,7 @@
     "href": "workflow.html#r-markdown-quarto",
     "title": "2  Project Workflow",
     "section": "2.5 R Markdown / Quarto",
-    "text": "2.5 R Markdown / Quarto\nR Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown. This includes things like the textbook for CE 361 and a number of my academic papers. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.\nA newer technology called Quarto somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive authoring guide to Quarto; read this guide and refer to it.\n\nI have written a template GitHub repository that generates a bookdown website and Elsevier journal article. I hope to create a similar template for Quarto in the near future.\nUsing the cosmodown package, you can set up a template to make your BYU Engineering thesis in bookdown. A Quarto template may come soon.\nA linkedin Learning Course, Creating Reports and Presentations with R Markdown and RStudio will help you learn these techniques."
+    "text": "2.5 R Markdown / Quarto\nR Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown or Quarto. This includes things like the textbook for CE 361 and a number of my academic papers. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.\nA newer technology called Quarto is somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive authoring guide to Quarto; read this guide and refer to it.\n\nI have written a template GitHub repository that generates a bookdown website and Elsevier journal article.\nUsing the byu-thesis quarto extention, you can set up a template to make your BYU Engineering thesis in quarto.\nA linkedin Learning Course, Creating Reports and Presentations with R Markdown and RStudio will help you learn these techniques."
   },
   {
     "objectID": "workflow.html#targets",
@@ -82,12 +82,5 @@
     "title": "2  Project Workflow",
     "section": "",
     "text": "A more detailed and robust description of an R project folder is here.↩︎"
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "3  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
   }
 ]
