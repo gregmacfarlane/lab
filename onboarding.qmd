@@ -4,46 +4,37 @@ The process to onboard in my lab is:
 
 1.  I decide to hire you, and you agree to work for me.
 
-2.  I send a message to Jolene Johnson in the department office to begin the
-    process to hire you.
+2.  I send a message to Jolene Johnson in the department office to begin the process to hire you.
 
 3.  I add you to the BYU Transportation Lab Team.
 
-4.  You join the Team and replace your initials avatar with a
-    picture[^onboarding-1] to use for your avatar on Teams.
+4.  You join the Team and replace your initials avatar with a picture[^onboarding-1] to use for your avatar on Teams.
 
-5.  You create a GitHub account (if you don't already have one), and send me
-    your username on Teams. Get a picture[^onboarding-2] to use for your avatar
-    on GitHub.
+5.  You create a GitHub account (if you don't already have one), and send me your username on Teams.
+    Get a picture[^onboarding-2] to use for your avatar on GitHub.
 
-6.  I add you to the [BYU-Transpolab](https://github.com/byu-transpolab) github
-    organization.
+6.  I add you to the [BYU-Transpolab](https://github.com/byu-transpolab) github organization.
 
-7.  You complete any necessary university hiring forms; Jolene will email you
-    with these instructions.
+7.  You complete any necessary university hiring forms; Jolene will email you with these instructions.
 
-8.  You complete Y-time and desk worker safety training, and any other safety
-    trainings that may be necessary.
+8.  You complete Y-time and desk worker safety training, and any other safety trainings that may be necessary.
 
-9.  I send a message to Julie Brinton in the department office to give you
-    after-hours access to the building, the transportation lab, and your desk as
-    appropriate.
+9.  I send a message to Julie Brinton in the department office to give you after-hours access to the building, the transportation lab, and your desk as appropriate.
 
-    -   I will tell you when your access expires; please mark this date down and
-        ask me to extend it if you are still working for me
+    -   I will tell you when your access expires; please mark this date down and ask me to extend it if you are still working for me
 
 10. You begin working!
 
-[^onboarding-1]: This can be a photograph of you, a heavily edited photo, a
-    drawing by your niece, whatever. Just not a blank image.
+[^onboarding-1]: This can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever.
+    Just not a blank image.
 
-[^onboarding-2]: This can be a photograph of you, a heavily edited photo, a
-    drawing by your niece, whatever. Just not the default block avatar.
+[^onboarding-2]: This can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever.
+    Just not the default block avatar.
 
 ## Working hours
 
-When I hire you I will state expectations for a weekly commitment. This is
-typically:
+When I hire you I will state expectations for a weekly commitment.
+This is typically:
 
 -   Undergraduates: 5-10 hours per week
 
@@ -51,35 +42,29 @@ typically:
 
 -   Graduate student Spring/Summer: 20-30 hours per week
 
-You may work whatever hours you choose, with the exception of any weekly project
-team meetings or project sponsor calls. That said, I strongly recommend you
-schedule a regular weekly time to dedicate to the research projects you are
-working on. Other commitments might easily crowd out the time for your research
-if you do not prioritize the time. Also, I want to pay you! But I can't if you
-don't put in time.
+You may work whatever hours you choose, with the exception of any weekly project team meetings or project sponsor calls.
+That said, I strongly recommend you schedule a regular weekly time to dedicate to the research projects you are working on.
+Other commitments might easily crowd out the time for your research if you do not prioritize the time.
+Also, I want to pay you!
+But I can't if you don't put in time.
 
-I strongly recommend that students who work for me as a research assistant quit
-any other research assistance, internship, or other external employment.
+I strongly recommend that students who work for me as a research assistant quit any other research assistance, internship, or other external employment.
 
 ## Communication
 
-I use Teams for almost all lab-related communication. Please install the Teams
-app on your phone and your computer. I expect you to respond to messages within
-a reasonable amount of time, but I never expect you to respond while you are
-with your families or other times when you are not working.
+I use Teams for almost all lab-related communication.
+Please install the Teams app on your phone and your computer.
+I expect you to respond to messages within a reasonable amount of time, but I never expect you to respond while you are with your families or other times when you are not working.
 
 If you would like to reach me with a message, use Teams.
 
-If you would like to meet with me in person about a brief issue, please schedule
-an [office hour appointment using
-Calendly](https://calendly.com/gregmacfarlane/office-hours). If you would like
-to schedule a longer meeting with me, please schedule a [research meeting
-appointment using Calendly](https://calendly.com/gregmacfarlane/research).
+If you would like to meet with me in person about a brief issue, please schedule an [office hour appointment using Calendly](https://calendly.com/gregmacfarlane/office-hours).
+If you would like to schedule a longer meeting with me, please schedule a [research meeting appointment using Calendly](https://calendly.com/gregmacfarlane/research).
 
 ## Wages
 
 Students in my lab have their wages determined by skill and seniority, following the basic outlines of the [BYU hourly pay scale](https://hrs.byu.edu/hourly-pay-scale-and-job-codes).
 Each semester I will evaluate student work and give raises as appropriate.
 
-If you believe you merit a raise or there are needs in your family that might
-necessitate a higher wage, please speak to me. I'll do what I can.
+If you believe you merit a raise or there are needs in your family that might necessitate a higher wage, please speak to me.
+I'll do what I can.
