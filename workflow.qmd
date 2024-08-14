@@ -214,24 +214,25 @@ including a script that will download a file from Box directly into your local
 ## R Markdown / Quarto
 
 R Markdown and Quarto are technologies for embedding analysis code inside of
-documents. Many examples of my work are available written in R Markdown or Quarto. This
-includes things like the [textbook for CE
+documents. Many examples of my work are available written in R Markdown or
+Quarto. This includes things like the [textbook for CE
 361](https://byu-transpolab.github.io/ce361/) and a [number of my academic
 papers](https://byu-transpolab.github.io/alameda_destinationchoice/). One set of
 source documents can be used to create a website, a word document, and a
 journal-formatted PDF file.
 
-A newer technology called Quarto is somewhat easier to work with, and can process
-code written in R, python, or any number of other languages. There is a
+A newer technology called Quarto is somewhat easier to work with, and can
+process code written in R, python, or any number of other languages. There is a
 comprehensive [authoring guide to Quarto](https://quarto.org/docs/guide/); read
 this guide and refer to it.
 
 > I have written a [template GitHub
-> repository](https://github.com/byu-transpolab/template_quarto) that
-> generates a bookdown website and Elsevier journal article. 
+> repository](https://github.com/byu-transpolab/template_quarto) that generates
+> a bookdown website and Elsevier journal article.
 >
-> Using the [byu-thesis](https://github.com/gregmacfarlane/byu-thesis) quarto extention,
-> you can set up a template to make your BYU Engineering thesis in quarto. 
+> Using the [byu-thesis](https://github.com/gregmacfarlane/byu-thesis) quarto
+> extention, you can set up a template to make your BYU Engineering thesis in
+> quarto.
 >
 > A linkedin Learning Course, [Creating Reports and Presentations with R
 > Markdown and
