@@ -188,7 +188,7 @@ organization](https://github.com/byu-transpolab). Repositories can be public if
 possible or private if necessary; speak to me about what your project requires.
 
 > The LinkedIn Learning Course [Learning Git and
-> Github](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-git-and-github-14213624%3Ftrk%3Dshare_ent_url%26shareId%3DMbR%252FIb35SFSq%252BWIOnc2cxQ%253D%253D)
+> Github](https://www.linkedin.com/learning/learning-git-and-github-23011330/)
 > provides a clear tutorial with installation instructions and basic commands.
 >
 > Jenny Bryan has an excellent book / course on using Git and GitHub with R,
