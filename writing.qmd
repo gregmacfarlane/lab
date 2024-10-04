@@ -1,0 +1,31 @@
+# Writing
+
+So, the time has come to write your thesis or report!
+
+## Introduction and Literature Review
+This is advice from Dan Ames:
+
+Your introduction should follow this general outline:
+
+1. What is the big-picture problem? (e.g., “Flooding is a major global problem.”)
+2. What is the specific problem we are interested in? (e.g., “We need better flooding models.”)
+3. What has been done already? (e.g., “The National Water Model and GEOGLOWS model flooding in these ways:”)
+4. What are the gaps in the science? (e.g., “The National Water Model under-predicts in snow-driven landscapes.”)
+5. What is our research plan? (e.g., “We will build and test a snow model to integrate into the National Water Model.”)
+
+The first three bullets generally comprise the “literature review” of the paper.
+This is done by including ~15 important references to “back up” your assertions
+(Ames et al. 2012). Do not provide an annotated bibliography where you summarize
+the papers you cite; instead, you will make your assertions and use the
+references to give you credibility and validate your statements  (Gilbert 1977).
+Read the papers before citing them (Simkin and Roychowdhury 2002). Use the
+latest version of Zotero (www.zotero.org)  to add your citations. Finally,
+remember to cite several papers from the journal to which you are submitting
+this paper. Editors appreciate this because it improves their citation indices
+(Garfield 2006). Also, your reviewers are likely working in the same field and
+will appreciate their work being recognized. If you cannot find any relevant
+papers from the target journal, it is a good sign that you should submit to a
+different journal.
+
+### Citations
+Use [Zotero]()
