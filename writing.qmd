@@ -1,11 +1,9 @@
 # Writing
 
-So, the time has come to write your thesis or report!
+So, the time has come to write your thesis or report! How do you do this?
 
 ## Introduction and Literature Review
-This is advice from Dan Ames:
-
-Your introduction should follow this general outline:
+Your introduction should follow this general outline^[This is advice from Dan Ames]:
 
 1. What is the big-picture problem? (e.g., “Flooding is a major global problem.”)
 2. What is the specific problem we are interested in? (e.g., “We need better flooding models.”)
@@ -29,3 +27,11 @@ different journal.
 
 ### Citations
 Use [Zotero]()
+
+## Methodology
+
+## Results
+
+## Discussion and Limitations
+
+## Conclusion
