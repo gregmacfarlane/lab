@@ -1,18 +1,15 @@
 # Project Workflow
 
-Most of my academic work uses R and R markdown (or more recently, Quarto) as a
+Most of my academic work uses R and Quarto as a
 backbone. To summarize:
 
 -   Create an R project as the hub of the project.
 
--   Track the project development using git and GitHub. [Manual
-    here](https://happygitwithr.com).
+-   Track the project development using git and GitHub. [Manual here](https://happygitwithr.com).
 
--   Write a document in Quarto or Bookdown. [Manual
-    here](https://quarto.org/docs/guide/).
+-   Write a document in Quarto or Bookdown. [Manual here](https://quarto.org/docs/guide/).
 
--   If heavy analysis is needed, use Targets. [Manual
-    here](https://books.ropensci.org/targets/).
+-   If heavy analysis is needed, use Targets. [Manual here](https://books.ropensci.org/targets/).
 
 -   If externally stored files are necessary, use Box.
 
@@ -133,17 +130,17 @@ explanation.
 [^workflow-1]: A more detailed and robust description of an R project folder is
     [here](https://www.chrisvoncsefalvay.com/2018/08/09/structuring-r-projects/).
 
-> The LinkedIn Learning Course [R: Essential Training: Wrangling and Visualizing
-> Data](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D)
-> shows how to implement this folder structure and an R Studio project
->
-> For an introduction to installing R and R Studio, there is a [tutorial at
-> DataCamp](https://www.datacamp.com/tutorial/r-studio-tutorial). Follow along
-> with the tutorial if you are new to R and R Studio.
->
-> If you are curious about projects, [there is a helpful R Studio resource
-> page](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)
-> with instructions on how they work.
+:::{.callout-note title="Training"}
+The LinkedIn Learning Course [R: Essential Training: Wrangling and Visualizing Data](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D)
+shows how to implement this folder structure and an R Studio project
+
+For an introduction to installing R and R Studio, there is a [tutorial at DataCamp](https://www.datacamp.com/tutorial/r-studio-tutorial). Follow along
+with the tutorial if you are new to R and R Studio. It is also possible to
+use [VS Code](https://code.visualstudio.com) or [Positron](https://positron.posit.co) if you prefer.
+
+If you are curious about projects, [there is a helpful R Studio resource page](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) 
+with instructions on how they work.
+:::
 
 ## Git and GitHub
 
@@ -183,17 +180,17 @@ notebook for the project. Some basic rules for working with git:
 GitHub is a web service that hosts git repositories, allowing git users to share
 code with each other and back it up on the internet. You are welcome to create
 private repositories for your own use and exploration, but work done for the lab
-should be in the [BYU-Transpolab
-organization](https://github.com/byu-transpolab). Repositories can be public if
-possible or private if necessary; speak to me about what your project requires.
+should be in the [BYU-Transpolab organization](https://github.com/byu-transpolab). 
+Repositories can be public if possible or private if necessary; speak to me
+about what your project requires.
 
-> The LinkedIn Learning Course [Learning Git and
-> Github](https://www.linkedin.com/learning/learning-git-and-github-23011330/)
-> provides a clear tutorial with installation instructions and basic commands.
->
-> Jenny Bryan has an excellent book / course on using Git and GitHub with R,
-> [called Happy Git and GitHub for the
-> userR](https://happygitwithr.com/index.html). Follow these instructions.
+:::{.callout-note title="Training"}
+The LinkedIn Learning Course [Learning Git and Github](https://www.linkedin.com/learning/learning-git-and-github-23011330/)
+provides a clear tutorial with installation instructions and basic commands.
+
+Jenny Bryan has an excellent book / course on using Git and GitHub with R,
+[called Happy Git and GitHub for the userR](https://happygitwithr.com/index.html). Follow these instructions.
+:::
 
 ## Box
 
@@ -211,13 +208,13 @@ If your project uses large data that cannot be stored in Git, I recommend
 including a script that will download a file from Box directly into your local
 `data/` folder.
 
-## R Markdown / Quarto
+## Quarto
 
-R Markdown and Quarto are technologies for embedding analysis code inside of
-documents. Many examples of my work are available written in R Markdown or
-Quarto. This includes things like the [textbook for CE
-361](https://byu-transpolab.github.io/ce361/) and a [number of my academic
-papers](https://byu-transpolab.github.io/alameda_destinationchoice/). One set of
+Quarto is a technology for embedding analysis code inside of
+documents. It replaced a slightly older technology called R Markdown.  Many
+examples of my work are available written in R Markdown or Quarto. This includes
+things like the [textbook for CE 361](https://byu-transpolab.github.io/ce361/)
+and a [number of my academic papers](https://byu-transpolab.github.io/alameda_destinationchoice/). One set of
 source documents can be used to create a website, a word document, and a
 journal-formatted PDF file.
 
@@ -226,18 +223,20 @@ process code written in R, python, or any number of other languages. There is a
 comprehensive [authoring guide to Quarto](https://quarto.org/docs/guide/); read
 this guide and refer to it.
 
-> I have written a [template GitHub
-> repository](https://github.com/byu-transpolab/template_quarto) that generates
-> a bookdown website and Elsevier journal article.
->
-> Using the [byu-thesis](https://github.com/gregmacfarlane/byu-thesis) quarto
-> extention, you can set up a template to make your BYU Engineering thesis in
-> quarto.
->
-> A linkedin Learning Course, [Creating Reports and Presentations with R
-> Markdown and
-> RStudio](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D)
-> will help you learn these techniques.
+:::{.callout-note title="Template repo"}
+I have written a [template GitHub
+repository](https://github.com/byu-transpolab/template_quarto) that generates
+a bookdown website and Elsevier journal article.
+
+Using the [byu-thesis](https://github.com/gregmacfarlane/byu-thesis) quarto
+extension, you can set up a template to make your BYU Engineering thesis in
+quarto.
+
+A linkedin Learning Course, 
+[Creating Reports and Presentations with R Markdown and RStudio](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D)
+will help you learn these techniques. I prefer to use Quarto in 2025, but 
+many of the techniques and principles are the same.
+:::
 
 ## Targets
 
