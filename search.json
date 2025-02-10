@@ -14,7 +14,7 @@
     "href": "onboarding.html",
     "title": "1  Onboarding",
     "section": "",
-    "text": "1.1 Working hours\nWhen I hire you I will state expectations for a weekly commitment. This is typically:\nYou may work whatever hours you choose, with the exception of any weekly project team meetings or project sponsor calls. That said, I strongly recommend you schedule a regular weekly time to dedicate to the research projects you are working on. Other commitments might easily crowd out the time for your research if you do not prioritize the time. Also, I want to pay you! But I can’t if you don’t put in time.\nI strongly recommend that students who work for me as a research assistant quit any other research assistance, internship, or other external employment.",
+    "text": "1.1 Working hours\nThe process to onboard in my lab is:\nWhen I hire you I will state expectations for a weekly commitment. This is typically:\nYou may work whatever hours you choose, with the exception of any weekly project team meetings or project sponsor calls. That said, I strongly recommend you schedule a regular weekly time to dedicate to the research projects you are working on. Other commitments might easily crowd out the time for your research if you do not prioritize the time. Also, I want to pay you! But I can’t if you don’t put in time.\nI strongly recommend that students who work for me as a research assistant quit any other research assistance, internship, or other external employment.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "workflow.html",
     "title": "2  Project Workflow",
     "section": "",
-    "text": "2.1 Motivation\nThe goal of this workflow is to allow you to work effectively in my lab, and to ensure that I and future students (including yourself!) know where things are and can rebuild them if necessary. For example, a peer reviewer may ask for changes to the analysis many months after you are gone. If you follow this workflow, the chances of me being able to productively use your work increase.\nA workflow that you have probably used in the past consists of:\nThis workflow has its benefits, mainly simplicity. Excel definitely has its place. But there are lots of drawbacks.\nFirst, spreadsheets tend to hide formulae or make them very difficult to read. For example, JP Morgan Chase bank lost almost $6 Billion when a trader believed a formula in an excel spreadsheet that he couldn’t see the error in, because the formula wasn’t shown. It would be better to have clearly written methods and analysis, than to just show the numbers that go in that analysis.\nSecond, this method can rely on lots of manual tasks: push this button, copy this figure, update this number. Doing it once is easy, but what if I ask you to go back and change something? Will you remember every table that depends on that calculation? Or what if you leave and another student has to figure out what you did? It would be better to have a reproducible document that re-builds itself whenever the analysis changes.\nThis is the problem that R and R markdown solves. For example, I can embed R code into this document. I can load a library, read a dataset, and create a figure all at once.\nlibrary(ggplot2)\n\nggplot(mpg, aes(displ, hwy, colour = class)) + \n  geom_point()\nAnd if I tell you that I’d rather see a different figure, you can just change the code and it will print something different\nggplot(mpg, aes(hwy, fill = class)) + \n  geom_density(alpha = 0.5) + theme_bw()\nSo, how do you make this happen?",
+    "text": "2.1 Motivation\nMost of my academic work uses R and Quarto as a backbone. To summarize:\nThe goal of this workflow is to allow you to work effectively in my lab, and to ensure that I and future students (including yourself!) know where things are and can rebuild them if necessary. For example, a peer reviewer may ask for changes to the analysis many months after you are gone. If you follow this workflow, the chances of me being able to productively use your work increase.\nA workflow that you have probably used in the past consists of:\nThis workflow has its benefits, mainly simplicity. Excel definitely has its place. But there are lots of drawbacks.\nFirst, spreadsheets tend to hide formulae or make them very difficult to read. For example, JP Morgan Chase bank lost almost $6 Billion when a trader believed a formula in an excel spreadsheet that he couldn’t see the error in, because the formula wasn’t shown. It would be better to have clearly written methods and analysis, than to just show the numbers that go in that analysis.\nSecond, this method can rely on lots of manual tasks: push this button, copy this figure, update this number. Doing it once is easy, but what if I ask you to go back and change something? Will you remember every table that depends on that calculation? Or what if you leave and another student has to figure out what you did? It would be better to have a reproducible document that re-builds itself whenever the analysis changes.\nThis is the problem that R and R markdown solves. For example, I can embed R code into this document. I can load a library, read a dataset, and create a figure all at once.\nlibrary(ggplot2)\n\nggplot(mpg, aes(displ, hwy, colour = class)) + \n  geom_point()\nAnd if I tell you that I’d rather see a different figure, you can just change the code and it will print something different\nggplot(mpg, aes(hwy, fill = class)) + \n  geom_density(alpha = 0.5) + theme_bw()\nSo, how do you make this happen?",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Workflow</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "workflow.html#sec-r-projects",
     "title": "2  Project Workflow",
     "section": "2.2 R Projects",
-    "text": "2.2 R Projects\nThe basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an .Rproj file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a tutorial at DataCamp.\nThe R project folder should be organized into these subfolders as follows:\n&lt;project&gt;/\n  - README.md\n  - &lt;project.Rproj&gt;\n  - data/\n  - R/\n  - py/\n  - ....\n\nREADME.md is a markdown file that describes what the project is about. What is the central question, who is the project sponsor, and what other data resources might need to be referenced in the project.\ndata/ is the folder where you place all of your input or intermediate data. There may be subfolders in this folder. Preference is for plain text (csv or json) data over data stored in spreadsheets or binary formats. If you get data from the internet, it might be better to write code to download the data instead of storing the downloaded data. That would be more reproducible.\nR/ is a folder where you write your R scripts. Each script should be clearly named, e.g., data_cleaning.R .\npy/ is a folder where you write your python scripts. Each script should be clearly named, e.g., data_cleaning.py .\n\nWhen you type a path in a script, it should reference its location relative to the folder root. So a script in R/clean_data.R might look like this:\n# read data from folder\ndata &lt;- read_csv(\"data/my_data.csv\")\nThis lets other people who work on your project use it without changing all the paths to the all the files that you use. Or as Jenny Bryan put it,\n\nIf the first line of your #rstats script issetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\"), I will come into your lab and SET YOUR COMPUTER ON FIRE.\n\nOther folders might be useful, but should be carefully named and organized.1 Additionally, it might be a good idea to put README file in some of the sub-folders if the information in them might need more explanation.\n\nThe LinkedIn Learning Course R: Essential Training: Wrangling and Visualizing Data shows how to implement this folder structure and an R Studio project\nFor an introduction to installing R and R Studio, there is a tutorial at DataCamp. Follow along with the tutorial if you are new to R and R Studio.\nIf you are curious about projects, there is a helpful R Studio resource page with instructions on how they work.",
+    "text": "2.2 R Projects\nThe basis of every project — a paper, thesis, or report — should be an R project. An R project is a folder associated with an .Rproj file that can be created and opened in R Studio. For an introduction to installing R and Rstudio, there is a tutorial at DataCamp.\nThe R project folder should be organized into these subfolders as follows:\n&lt;project&gt;/\n  - README.md\n  - &lt;project.Rproj&gt;\n  - data/\n  - R/\n  - py/\n  - ....\n\nREADME.md is a markdown file that describes what the project is about. What is the central question, who is the project sponsor, and what other data resources might need to be referenced in the project.\ndata/ is the folder where you place all of your input or intermediate data. There may be subfolders in this folder. Preference is for plain text (csv or json) data over data stored in spreadsheets or binary formats. If you get data from the internet, it might be better to write code to download the data instead of storing the downloaded data. That would be more reproducible.\nR/ is a folder where you write your R scripts. Each script should be clearly named, e.g., data_cleaning.R .\npy/ is a folder where you write your python scripts. Each script should be clearly named, e.g., data_cleaning.py .\n\nWhen you type a path in a script, it should reference its location relative to the folder root. So a script in R/clean_data.R might look like this:\n# read data from folder\ndata &lt;- read_csv(\"data/my_data.csv\")\nThis lets other people who work on your project use it without changing all the paths to the all the files that you use. Or as Jenny Bryan put it,\n\nIf the first line of your #rstats script issetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\"), I will come into your lab and SET YOUR COMPUTER ON FIRE.\n\nOther folders might be useful, but should be carefully named and organized.1 Additionally, it might be a good idea to put README file in some of the sub-folders if the information in them might need more explanation.\n\n\n\n\n\n\nTraining\n\n\n\nThe LinkedIn Learning Course R: Essential Training: Wrangling and Visualizing Data shows how to implement this folder structure and an R Studio project\nFor an introduction to installing R and R Studio, there is a tutorial at DataCamp. Follow along with the tutorial if you are new to R and R Studio. It is also possible to use VS Code or Positron if you prefer.\nIf you are curious about projects, there is a helpful R Studio resource page with instructions on how they work.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Workflow</span>"
     ]
@@ -94,7 +94,7 @@
     "href": "workflow.html#git-and-github",
     "title": "2  Project Workflow",
     "section": "2.3 Git and GitHub",
-    "text": "2.3 Git and GitHub\nYour project directory should be a git repository that is posted to GitHub.\nGit is software that tracks changes to plain text documents line-by-line, over time. It also provides robust methods for merging conflicting documents written by different users. No longer will you need to have a folder that contains the following:\nmy_document.docx\nmy_document edits from advisor.docx\nmy_document final.docx\nmy_documentREALLYFINAL.docx\nmy_documentREALLYFINAL_edits from advisor.docx\nWhen used correctly with good commit messages, git can serve as an excellent lab notebook for the project. Some basic rules for working with git:\n\nCommit regularly Keep your working directory clean! Don’t let dozens of different changes pile up between commits\nWrite good messages A good commit message will help you and me trace what is going on, and see what matters. A primer on writing good messages is here; learn this and do it consistently!\nIgnore files correctly If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.\n\nGitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the BYU-Transpolab organization. Repositories can be public if possible or private if necessary; speak to me about what your project requires.\n\nThe LinkedIn Learning Course Learning Git and Github provides a clear tutorial with installation instructions and basic commands.\nJenny Bryan has an excellent book / course on using Git and GitHub with R, called Happy Git and GitHub for the userR. Follow these instructions.",
+    "text": "2.3 Git and GitHub\nYour project directory should be a git repository that is posted to GitHub.\nGit is software that tracks changes to plain text documents line-by-line, over time. It also provides robust methods for merging conflicting documents written by different users. No longer will you need to have a folder that contains the following:\nmy_document.docx\nmy_document edits from advisor.docx\nmy_document final.docx\nmy_documentREALLYFINAL.docx\nmy_documentREALLYFINAL_edits from advisor.docx\nWhen used correctly with good commit messages, git can serve as an excellent lab notebook for the project. Some basic rules for working with git:\n\nCommit regularly Keep your working directory clean! Don’t let dozens of different changes pile up between commits\nWrite good messages A good commit message will help you and me trace what is going on, and see what matters. A primer on writing good messages is here; learn this and do it consistently!\nIgnore files correctly If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.\n\nGitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the BYU-Transpolab organization. Repositories can be public if possible or private if necessary; speak to me about what your project requires.\n\n\n\n\n\n\nTraining\n\n\n\nThe LinkedIn Learning Course Learning Git and Github provides a clear tutorial with installation instructions and basic commands.\nJenny Bryan has an excellent book / course on using Git and GitHub with R, called Happy Git and GitHub for the userR. Follow these instructions.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Workflow</span>"
     ]
@@ -110,11 +110,11 @@
     ]
   },
   {
-    "objectID": "workflow.html#r-markdown-quarto",
-    "href": "workflow.html#r-markdown-quarto",
+    "objectID": "workflow.html#quarto",
+    "href": "workflow.html#quarto",
     "title": "2  Project Workflow",
-    "section": "2.5 R Markdown / Quarto",
-    "text": "2.5 R Markdown / Quarto\nR Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown or Quarto. This includes things like the textbook for CE 361 and a number of my academic papers. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.\nA newer technology called Quarto is somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive authoring guide to Quarto; read this guide and refer to it.\n\nI have written a template GitHub repository that generates a bookdown website and Elsevier journal article.\nUsing the byu-thesis quarto extention, you can set up a template to make your BYU Engineering thesis in quarto.\nA linkedin Learning Course, Creating Reports and Presentations with R Markdown and RStudio will help you learn these techniques.",
+    "section": "2.5 Quarto",
+    "text": "2.5 Quarto\nQuarto is a technology for embedding analysis code inside of documents. It replaced a slightly older technology called R Markdown. Many examples of my work are available written in R Markdown or Quarto. This includes things like the textbook for CE 361 and a number of my academic papers. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.\nA newer technology called Quarto is somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive authoring guide to Quarto; read this guide and refer to it.\n\n\n\n\n\n\nTemplate repo\n\n\n\nI have written a template GitHub repository that generates a bookdown website and Elsevier journal article.\nUsing the byu-thesis quarto extension, you can set up a template to make your BYU Engineering thesis in quarto.\nA linkedin Learning Course, Creating Reports and Presentations with R Markdown and RStudio will help you learn these techniques. I prefer to use Quarto in 2025, but many of the techniques and principles are the same.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Workflow</span>"
     ]
@@ -137,6 +137,76 @@
     "text": "A more detailed and robust description of an R project folder is here.↩︎",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html",
+    "href": "writing.html",
+    "title": "3  Writing",
+    "section": "",
+    "text": "3.1 Introduction and Literature Review\nSo, the time has come to write your thesis or report! How do you do this?\nYour introduction should follow this general outline1:\nThe first three bullets generally comprise the “literature review” of the paper. This is done by including ~15 important references to “back up” your assertions (Ames et al. 2012). Do not provide an annotated bibliography where you summarize the papers you cite; instead, you will make your assertions and use the references to give you credibility and validate your statements  (Gilbert 1977). Read the papers before citing them (Simkin and Roychowdhury 2002). Use the latest version of Zotero (www.zotero.org)  to add your citations. Finally, remember to cite several papers from the journal to which you are submitting this paper. Editors appreciate this because it improves their citation indices (Garfield 2006). Also, your reviewers are likely working in the same field and will appreciate their work being recognized. If you cannot find any relevant papers from the target journal, it is a good sign that you should submit to a different journal.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#introduction-and-literature-review",
+    "href": "writing.html#introduction-and-literature-review",
+    "title": "3  Writing",
+    "section": "",
+    "text": "What is the big-picture problem? (e.g., “Flooding is a major global problem.”)\nWhat is the specific problem we are interested in? (e.g., “We need better flooding models.”)\nWhat has been done already? (e.g., “The National Water Model and GEOGLOWS model flooding in these ways:”)\nWhat are the gaps in the science? (e.g., “The National Water Model under-predicts in snow-driven landscapes.”)\nWhat is our research plan? (e.g., “We will build and test a snow model to integrate into the National Water Model.”)\n\n\n\n3.1.1 Citations\nUse Zotero",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#methodology",
+    "href": "writing.html#methodology",
+    "title": "3  Writing",
+    "section": "3.2 Methodology",
+    "text": "3.2 Methodology",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#results",
+    "href": "writing.html#results",
+    "title": "3  Writing",
+    "section": "3.3 Results",
+    "text": "3.3 Results",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#discussion-and-limitations",
+    "href": "writing.html#discussion-and-limitations",
+    "title": "3  Writing",
+    "section": "3.4 Discussion and Limitations",
+    "text": "3.4 Discussion and Limitations",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#conclusion",
+    "href": "writing.html#conclusion",
+    "title": "3  Writing",
+    "section": "3.5 Conclusion",
+    "text": "3.5 Conclusion",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#footnotes",
+    "href": "writing.html#footnotes",
+    "title": "3  Writing",
+    "section": "",
+    "text": "This is advice from Dan Ames↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
   }
 ]

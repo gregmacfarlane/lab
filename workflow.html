@@ -64,17 +64,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./writing.html" rel="next">
 <link href="./onboarding.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-494121dfa8658343c03537e94414993d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -160,6 +160,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Writing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -178,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-r-projects" id="toc-sec-r-projects" class="nav-link" data-scroll-target="#sec-r-projects"><span class="header-section-number">2.2</span> R Projects</a></li>
   <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github"><span class="header-section-number">2.3</span> Git and GitHub</a></li>
   <li><a href="#box" id="toc-box" class="nav-link" data-scroll-target="#box"><span class="header-section-number">2.4</span> Box</a></li>
-  <li><a href="#r-markdown-quarto" id="toc-r-markdown-quarto" class="nav-link" data-scroll-target="#r-markdown-quarto"><span class="header-section-number">2.5</span> R Markdown / Quarto</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">2.5</span> Quarto</a></li>
   <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets"><span class="header-section-number">2.6</span> Targets</a>
   <ul class="collapse">
   <li><a href="#targets-and-box-files" id="toc-targets-and-box-files" class="nav-link" data-scroll-target="#targets-and-box-files"><span class="header-section-number">2.6.1</span> Targets and Box files</a></li>
@@ -208,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Most of my academic work uses R and R markdown (or more recently, Quarto) as a backbone. To summarize:</p>
+<p>Most of my academic work uses R and Quarto as a backbone. To summarize:</p>
 <ul>
 <li><p>Create an R project as the hub of the project.</p></li>
 <li><p>Track the project development using git and GitHub. <a href="https://happygitwithr.com">Manual here</a>.</p></li>
@@ -282,11 +288,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If the first line of your #rstats script is<code>setwd("C:\Users\jenny\path\that\only\I\have")</code>, I will come into your lab and SET YOUR COMPUTER ON FIRE.</p>
 </blockquote>
 <p>Other folders might be useful, but should be carefully named and organized.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Additionally, it might be a good idea to put <code>README</code> file in some of the sub-folders if the information in them might need more explanation.</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-note callout-titled" title="Training">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Training
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D">R: Essential Training: Wrangling and Visualizing Data</a> shows how to implement this folder structure and an R Studio project</p>
-<p>For an introduction to installing R and R Studio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>. Follow along with the tutorial if you are new to R and R Studio.</p>
+<p>For an introduction to installing R and R Studio, there is a <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">tutorial at DataCamp</a>. Follow along with the tutorial if you are new to R and R Studio. It is also possible to use <a href="https://code.visualstudio.com">VS Code</a> or <a href="https://positron.posit.co">Positron</a> if you prefer.</p>
 <p>If you are curious about projects, <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">there is a helpful R Studio resource page</a> with instructions on how they work.</p>
-</blockquote>
+</div>
+</div>
 </section>
 <section id="git-and-github" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="git-and-github"><span class="header-section-number">2.3</span> Git and GitHub</h2>
@@ -304,10 +320,20 @@ my_documentREALLYFINAL_edits from advisor.docx</code></pre>
 <li><p><strong>Ignore files correctly</strong> If it is a file that you actually worked on, then it should be committed and tracked. But if you don’t know what it is, then there’s a good chance that it was created as a byproduct and should be ignored. You don’t want hundreds of files clogging up your git commit list. Also, any project data that is not supposed to be distributed must be ignored.</p></li>
 </ul>
 <p>GitHub is a web service that hosts git repositories, allowing git users to share code with each other and back it up on the internet. You are welcome to create private repositories for your own use and exploration, but work done for the lab should be in the <a href="https://github.com/byu-transpolab">BYU-Transpolab organization</a>. Repositories can be public if possible or private if necessary; speak to me about what your project requires.</p>
-<blockquote class="blockquote">
-<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-git-and-github-14213624%3Ftrk%3Dshare_ent_url%26shareId%3DMbR%252FIb35SFSq%252BWIOnc2cxQ%253D%253D">Learning Git and Github</a> provides a clear tutorial with installation instructions and basic commands.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Training">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Training
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The LinkedIn Learning Course <a href="https://www.linkedin.com/learning/learning-git-and-github-23011330/">Learning Git and Github</a> provides a clear tutorial with installation instructions and basic commands.</p>
 <p>Jenny Bryan has an excellent book / course on using Git and GitHub with R, <a href="https://happygitwithr.com/index.html">called Happy Git and GitHub for the userR</a>. Follow these instructions.</p>
-</blockquote>
+</div>
+</div>
 </section>
 <section id="box" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="box"><span class="header-section-number">2.4</span> Box</h2>
@@ -315,15 +341,25 @@ my_documentREALLYFINAL_edits from advisor.docx</code></pre>
 <p>BYU has given you free access to unlimited space on Box. I may create a folder that you use for a project, or you might create a folder and invite me to it. Folders should be organized with the same <code>data/</code> <code>README</code>, etc. file structure as described in <a href="#sec-r-projects">R Projects</a>.</p>
 <p>If your project uses large data that cannot be stored in Git, I recommend including a script that will download a file from Box directly into your local <code>data/</code> folder.</p>
 </section>
-<section id="r-markdown-quarto" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="r-markdown-quarto"><span class="header-section-number">2.5</span> R Markdown / Quarto</h2>
-<p>R Markdown and Quarto are technologies for embedding analysis code inside of documents. Many examples of my work are available written in R Markdown or Quarto. This includes things like the <a href="https://byu-transpolab.github.io/ce361/">textbook for CE 361</a> and a <a href="https://byu-transpolab.github.io/alameda_destinationchoice/">number of my academic papers</a>. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.</p>
+<section id="quarto" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="quarto"><span class="header-section-number">2.5</span> Quarto</h2>
+<p>Quarto is a technology for embedding analysis code inside of documents. It replaced a slightly older technology called R Markdown. Many examples of my work are available written in R Markdown or Quarto. This includes things like the <a href="https://byu-transpolab.github.io/ce361/">textbook for CE 361</a> and a <a href="https://byu-transpolab.github.io/alameda_destinationchoice/">number of my academic papers</a>. One set of source documents can be used to create a website, a word document, and a journal-formatted PDF file.</p>
 <p>A newer technology called Quarto is somewhat easier to work with, and can process code written in R, python, or any number of other languages. There is a comprehensive <a href="https://quarto.org/docs/guide/">authoring guide to Quarto</a>; read this guide and refer to it.</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-note callout-titled" title="Template repo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Template repo
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>I have written a <a href="https://github.com/byu-transpolab/template_quarto">template GitHub repository</a> that generates a bookdown website and Elsevier journal article.</p>
-<p>Using the <a href="https://github.com/gregmacfarlane/byu-thesis">byu-thesis</a> quarto extention, you can set up a template to make your BYU Engineering thesis in quarto.</p>
-<p>A linkedin Learning Course, <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D">Creating Reports and Presentations with R Markdown and RStudio</a> will help you learn these techniques.</p>
-</blockquote>
+<p>Using the <a href="https://github.com/gregmacfarlane/byu-thesis">byu-thesis</a> quarto extension, you can set up a template to make your BYU Engineering thesis in quarto.</p>
+<p>A linkedin Learning Course, <a href="https://www.linkedin.com/learning-login/share?account=2153100&amp;forceAccount=false&amp;redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D">Creating Reports and Presentations with R Markdown and RStudio</a> will help you learn these techniques. I prefer to use Quarto in 2025, but many of the techniques and principles are the same.</p>
+</div>
+</div>
 </section>
 <section id="targets" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="targets"><span class="header-section-number">2.6</span> Targets</h2>
@@ -509,8 +545,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -621,7 +655,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -854,8 +887,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./writing.html" class="pagination-link" aria-label="Writing">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Writing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
