@@ -2,4 +2,19 @@
 
 You have been hired into my lab, or are about to be hired in my lab.
 This website is a collection of resources that my students use to get trained and learn how to do things.
-It is also a helpful thing for me to remember all the things I have to do.
+
+## Lab Mission
+
+The mission of the transportation laboratory --- or at least my part of it --- is:
+
+> Develop techniques and tools that equip society to understand the impacts of transportation systems and policies on God’s children and Creation. Apply this understanding to advance sustainable human flourishing through improved access and mobility.
+
+This mission is achieved through a few areas of focus:
+
+  1. Develop student researchers who pursue Truth with curiosity, skill, and faith. These students will become researchers, analysts, policy makers, and informed citizens according to their own life interests and the guidance of the Spirit.
+  2. Use open-source tools and methods to develop, test, and share knowledge.
+  3. Communicate findings of our research to the academic community and the public 
+  through clear writing and innovative media.
+
+
+
