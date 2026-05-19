@@ -5,3 +5,5 @@
 /.quarto/
 /_book/
 workflow_files
+
+**/*.quarto_ipynb
