@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -71,6 +106,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -117,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./onboarding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Onboarding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Onboarding and Working</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -148,14 +212,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-and-literature-review" id="toc-introduction-and-literature-review" class="nav-link active" data-scroll-target="#introduction-and-literature-review"><span class="header-section-number">3.1</span> Introduction and Literature Review</a>
+  <li><a href="#writing-style" id="toc-writing-style" class="nav-link active" data-scroll-target="#writing-style"><span class="header-section-number">3.1</span> Writing Style</a></li>
+  <li><a href="#paper-outline" id="toc-paper-outline" class="nav-link" data-scroll-target="#paper-outline"><span class="header-section-number">3.2</span> Paper Outline</a>
   <ul class="collapse">
-  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><span class="header-section-number">3.1.1</span> Citations</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3.2.1</span> Introduction</a></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review"><span class="header-section-number">3.2.2</span> Literature Review</a></li>
   </ul></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3.2</span> Methodology</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3.3</span> Results</a></li>
-  <li><a href="#discussion-and-limitations" id="toc-discussion-and-limitations" class="nav-link" data-scroll-target="#discussion-and-limitations"><span class="header-section-number">3.4</span> Discussion and Limitations</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.5</span> Conclusion</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3.3</span> Methodology</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3.4</span> Results</a></li>
+  <li><a href="#discussion-and-limitations" id="toc-discussion-and-limitations" class="nav-link" data-scroll-target="#discussion-and-limitations"><span class="header-section-number">3.5</span> Discussion and Limitations</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.6</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -181,42 +247,482 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>So, the time has come to write your thesis or report! How do you do this?</p>
-<section id="introduction-and-literature-review" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="introduction-and-literature-review"><span class="header-section-number">3.1</span> Introduction and Literature Review</h2>
-<p>Your introduction should follow this general outline<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<p>So, the time has come to write your thesis or report! How do you do this? This section provides a couple of tips and tricks to help you write a good paper.</p>
+<section id="writing-style" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="writing-style"><span class="header-section-number">3.1</span> Writing Style</h2>
+<p>Your writing should be consise and clear. The following tips will help you with this, but I do not intend for this list of tips to be exhaustive or to replace either a writing course or good editing.</p>
 <ol type="1">
-<li>What is the big-picture problem? (e.g., “Flooding is a major global problem.”)</li>
-<li>What is the specific problem we are interested in? (e.g., “We need better flooding models.”)</li>
-<li>What has been done already? (e.g., “The National Water Model and GEOGLOWS model flooding in these ways:”)</li>
-<li>What are the gaps in the science? (e.g., “The National Water Model under-predicts in snow-driven landscapes.”)</li>
-<li>What is our research plan? (e.g., “We will build and test a snow model to integrate into the National Water Model.”)</li>
+<li><strong>Use active voice.</strong> Active voice is easier to read and is more natural. For example, instead of saying “The data was analyzed,” say “We analyzed the data.” Pay attention to the actor in a sentence as well: it is unusual for a measurement device to actually collect the measurement; rather, the analyst uses a device to collect the measurement.</li>
+<li><strong>Pronouns are fine, in moderation.</strong> Some engineering writing manuals recommend avoiding pronouns, but doing this makes it hard to use active voice. Avoid informal language, but a sentence like “In this paper, we present a new method to” is perfectly fine. Bue if <em>every</em> sentence in the paper uses a pronoun, you should think about varying your writing style.</li>
+<li><strong>Prefer present tense.</strong> Generally, the voice of your writing should be as though you are presenting the findings at the time the reader is reading. For example, instead of saying “The data revealed that…” say “The data reveal” or “We find that…” Exceptions to this include when you are describing a completed data collection process, “We collected the data at these sites on these days.”</li>
+<li><strong>Link ideas in a coherent way.</strong> If one sentence describes how A leads to B, then the next sentence had better describe how B leads to C. If the next sentence is something about D, then your reader will be lost.</li>
+<li><strong>Don’t create unneeded acronyms.</strong> Acronyms are helpful for consolidating complex ideas in a concise way. But over-use of acronyms, particularly ones you define yourself, tends to make text unreadable. Generally, if an acronym doesn’t already exist, you shouldn’t make a new one. DOT, OLS, MNL, MCMC, FHWA, etc. are all well-known acronyms that you should use (after defining on first use). Writing a paper about urban green spaces? Just call them urban green spaces because UGS isn’t a common acronym.</li>
 </ol>
-<p>The first three bullets generally comprise the “literature review” of the paper. This is done by including ~15 important references to “back up” your assertions (Ames et al.&nbsp;2012). Do not provide an annotated bibliography where you summarize the papers you cite; instead, you will make your assertions and use the references to give you credibility and validate your statements &nbsp;(Gilbert 1977). Read the papers before citing them (Simkin and Roychowdhury 2002). Use the latest version of Zotero (www.zotero.org) &nbsp;to add your citations. Finally, remember to cite several papers from the journal to which you are submitting this paper. Editors appreciate this because it improves their citation indices (Garfield 2006). Also, your reviewers are likely working in the same field and will appreciate their work being recognized. If you cannot find any relevant papers from the target journal, it is a good sign that you should submit to a different journal.</p>
-<section id="citations" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="citations"><span class="header-section-number">3.1.1</span> Citations</h3>
-<p>Use <a href="">Zotero</a></p>
+<p>Please read the handout on <a href="https://rwc.byu.edu/writinghelp/clarity">concision and clarity</a> for more tips.</p>
+</section>
+<section id="paper-outline" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="paper-outline"><span class="header-section-number">3.2</span> Paper Outline</h2>
+<p>Writing in this discipline generally follows the <a href="https://rwc.byu.edu/writinghelp/writing-in-the-sciences-imrd">IMRD guidelines</a>. One deviation is that most papers in my fields generally contain a somewhat longer literature review. So, we write like an ILMRD paper.</p>
+<section id="introduction" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.2.1</span> Introduction</h3>
+<p>Effective introductions are often four paragraphs:</p>
+<ol type="1">
+<li>Big problem (motivation) <em>Understanding how individuals make travel decisions is essential for addressing pressing transportation challenges such as congestion, emissions, and inequitable access to opportunities.</em></li>
+<li>Narrow problem and limitations of prior work (research gap) <em>Although previous studies have improved our understanding of travel behavior, most rely on cross-sectional data and therefore provide limited insight into how individuals adapt their travel choices over time.</em></li>
+<li>Current study and contribution (what this paper does) <em>This study addresses these limitations by leveraging longitudinal travel survey data to examine how changes in household circumstances influence mode choice behavior.</em></li>
+<li>Paper outline (roadmap) <em>The remainder of this paper reviews the relevant literature, describes the data and methods, presents the empirical results, and discusses implications for transportation planning and policy.</em></li>
+</ol>
+<p>Sometimes points 1 or 2 will be more than one strict paragraph.</p>
+</section>
+<section id="literature-review" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="literature-review"><span class="header-section-number">3.2.2</span> Literature Review</h3>
+<p>The literature review effectively restates points 1 and 2 of the Introduction, but with considerably more detail and references.</p>
+<p>This is not simply an annotated bibliography where you summarize the papers you have cited; instead, the literature review is a critical persuasive analysis of what has been done, what its limitations are, and how a new study — presumably yours — can improve on it. By citing relevant work, you establish your own credibility and illustrate how you are not just doing this because you thought it was interesting, but are making a substantive contribution to the field. you will make your assertions and use the references to give you credibility and validate your statements. Read papers before citing them <span class="citation" data-cites="simkin2002readcite">(<a href="references.html#ref-simkin2002readcite" role="doc-biblioref"><strong>simkin2002readcite?</strong></a>)</span>, at least to the point where you can summarize their key methods and findings.</p>
+<p>Use the latest version of <a href="https://zotero.org">Zotero</a> &nbsp;to organize your citations and notes. I will probably set up a shared library for you. Use the zotero citation editor, or quarto citations.</p>
+<p>Remember to cite several papers from the journal to which you are submitting this paper. If you cannot find any relevant papers from the target journal, it is a good sign that you should submit to a different journal.</p>
+<p>The last paragraph of the literature review should clearly identify the gap your research is trying to fill.</p>
 </section>
 </section>
-<section id="methodology" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="methodology"><span class="header-section-number">3.2</span> Methodology</h2>
+<section id="methodology" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">3.3</span> Methodology</h2>
+<p>In this section, you describe your approach to the problem that you are addressing. Often, this section will contain more citations to the literature, particularly if you are using a model that someone else has developed, or a dataset that someone else has collected. In general, you should describe the process in sufficient detail that someone else could replicate your work if they had access to the same data and code.</p>
+<p>This is the section with the most mathematics. Use numbered equation environments, and define all terms. For example, the standard linear model is described as</p>
+<p><span id="eq-reg"><span class="math display">\[
+y = X\beta + \epsilon
+\tag{3.1}\]</span></span></p>
+<p>where <span class="math inline">\(y\)</span> is the dependent variable, <span class="math inline">\(X\)</span> is a matrix of independent variables, <span class="math inline">\(\beta\)</span> is the vector of coefficients, <span class="math inline">\(\epsilon\)</span> is the error term. Equations are part of the text, and do not “float” like figures or tables. As such, you do not need to “introduce” equations with their number. But if you refer to them again, you should reference them, like the regression model described in <a href="#eq-reg" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>.</p>
+<p>You should share your data and code as feasible. Include a reference to your project’s GitHub repository. If the data are public and you can fit them in the repository, put them there.</p>
+<p>Figures and tables should be numbered and referenced in the text. Table captions are titles, and not sentences like figures. Captions are placed above the table, but Quarto or LaTeX will handle this for you. Tables generally have only horizontal lines, and only the lines that are critical to separate blocks of information. I like using the <a href="https://modelsummary.com"><code>modelsummary</code></a> package to make tables. Use publication-ready names instead of the variable names in your table.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> Cylinders, <span class="at">dinm =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> mpg <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="st">"Miles per Gallon"</span> <span class="ot">=</span> hwy, <span class="st">"Engine Displacmeent (liters)"</span> <span class="ot">=</span> displ, <span class="st">"Cylinders"</span> <span class="ot">=</span> cyl, <span class="st">"Class"</span> <span class="ot">=</span> class) </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-sum" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Data Summary by Cylinders
+</figcaption>
+<div aria-describedby="tbl-sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_danxqx2ostat9yujvoxk = TinyTable.createTableFunctions("tinytable_danxqx2ostat9yujvoxk");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '-1', j: 10 } ], css_id: 'tinytable_css_8hhdqrbft0n9xgef1gjc',}, 
+          { positions: [ { i: '-1', j: 4 }, { i: '-1', j: 6 }, { i: '-1', j: 8 } ], css_id: 'tinytable_css_puo6o9gcfrzta5d43g1w',}, 
+          { positions: [ { i: '10', j: 3 }, { i: '10', j: 4 }, { i: '10', j: 5 }, { i: '10', j: 6 }, { i: '10', j: 7 }, { i: '10', j: 8 }, { i: '10', j: 9 }, { i: '10', j: 10 } ], css_id: 'tinytable_css_q245w2wit52tvj4ikji6',}, 
+          { positions: [ { i: '1', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 }, { i: '1', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '5', j: 5 }, { i: '6', j: 5 }, { i: '7', j: 5 }, { i: '8', j: 5 }, { i: '9', j: 5 }, { i: '1', j: 6 }, { i: '3', j: 6 }, { i: '4', j: 6 }, { i: '5', j: 6 }, { i: '6', j: 6 }, { i: '7', j: 6 }, { i: '8', j: 6 }, { i: '9', j: 6 }, { i: '1', j: 7 }, { i: '3', j: 7 }, { i: '4', j: 7 }, { i: '5', j: 7 }, { i: '6', j: 7 }, { i: '7', j: 7 }, { i: '8', j: 7 }, { i: '9', j: 7 }, { i: '1', j: 8 }, { i: '3', j: 8 }, { i: '4', j: 8 }, { i: '5', j: 8 }, { i: '6', j: 8 }, { i: '7', j: 8 }, { i: '8', j: 8 }, { i: '9', j: 8 }, { i: '1', j: 9 }, { i: '3', j: 9 }, { i: '4', j: 9 }, { i: '5', j: 9 }, { i: '6', j: 9 }, { i: '7', j: 9 }, { i: '8', j: 9 }, { i: '9', j: 9 }, { i: '1', j: 10 }, { i: '3', j: 10 }, { i: '4', j: 10 }, { i: '5', j: 10 }, { i: '6', j: 10 }, { i: '7', j: 10 }, { i: '8', j: 10 }, { i: '9', j: 10 } ], css_id: 'tinytable_css_lak4cd10s0r6och15js0',}, 
+          { positions: [ { i: '0', j: 3 }, { i: '2', j: 3 }, { i: '0', j: 4 }, { i: '2', j: 4 }, { i: '0', j: 5 }, { i: '2', j: 5 }, { i: '0', j: 6 }, { i: '2', j: 6 }, { i: '0', j: 7 }, { i: '2', j: 7 }, { i: '0', j: 8 }, { i: '2', j: 8 }, { i: '0', j: 9 }, { i: '2', j: 9 }, { i: '0', j: 10 }, { i: '2', j: 10 } ], css_id: 'tinytable_css_oggjx9zogv79r6t4j6no',}, 
+          { positions: [ { i: '-1', j: 3 }, { i: '-1', j: 5 }, { i: '-1', j: 7 }, { i: '-1', j: 9 } ], css_id: 'tinytable_css_dzm8ienszma81lejhc56',}, 
+          { positions: [ { i: '10', j: 1 }, { i: '10', j: 2 } ], css_id: 'tinytable_css_znnxi3unbwsormxrzaak',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '1', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_xwqjj00wr0y8qbyc5xoa',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '2', j: 1 }, { i: '0', j: 2 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_ms9atn0ymiwwybx7q5mb',}, 
+          { positions: [ { i: '-1', j: 1 }, { i: '-1', j: 2 } ], css_id: 'tinytable_css_1t7h7hyypdfqxso40boj',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_danxqx2ostat9yujvoxk.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_8hhdqrbft0n9xgef1gjc, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_8hhdqrbft0n9xgef1gjc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.03em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_puo6o9gcfrzta5d43g1w, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_puo6o9gcfrzta5d43g1w {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.03em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 3%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_q245w2wit52tvj4ikji6, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_q245w2wit52tvj4ikji6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_lak4cd10s0r6och15js0, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_lak4cd10s0r6och15js0 { text-align: right }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_oggjx9zogv79r6t4j6no, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_oggjx9zogv79r6t4j6no {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_dzm8ienszma81lejhc56, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_dzm8ienszma81lejhc56 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.03em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 3%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_znnxi3unbwsormxrzaak, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_znnxi3unbwsormxrzaak {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_xwqjj00wr0y8qbyc5xoa, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_xwqjj00wr0y8qbyc5xoa { text-align: left }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_ms9atn0ymiwwybx7q5mb, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_ms9atn0ymiwwybx7q5mb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_danxqx2ostat9yujvoxk td.tinytable_css_1t7h7hyypdfqxso40boj, #tinytable_danxqx2ostat9yujvoxk th.tinytable_css_1t7h7hyypdfqxso40boj {  position: relative; --border-bottom: 0; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_danxqx2ostat9yujvoxk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+<tr>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="1"> </th>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="2"> </th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="3">4</th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="5">5</th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="7">6</th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="9">8</th>
+</tr>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">  </th>
+                <th scope="col" data-row="0" data-col="3">Mean</th>
+                <th scope="col" data-row="0" data-col="4">Std. Dev.</th>
+                <th scope="col" data-row="0" data-col="5">Mean</th>
+                <th scope="col" data-row="0" data-col="6">Std. Dev.</th>
+                <th scope="col" data-row="0" data-col="7">Mean</th>
+                <th scope="col" data-row="0" data-col="8">Std. Dev.</th>
+                <th scope="col" data-row="0" data-col="9">Mean</th>
+                <th scope="col" data-row="0" data-col="10">Std. Dev.</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Miles per Gallon</td>
+                  <td data-row="1" data-col="2"></td>
+                  <td data-row="1" data-col="3">28.8</td>
+                  <td data-row="1" data-col="4">4.5</td>
+                  <td data-row="1" data-col="5">28.8</td>
+                  <td data-row="1" data-col="6">0.5</td>
+                  <td data-row="1" data-col="7">22.8</td>
+                  <td data-row="1" data-col="8">3.7</td>
+                  <td data-row="1" data-col="9">17.6</td>
+                  <td data-row="1" data-col="10">3.3</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Engine Displacmeent (liters)</td>
+                  <td data-row="2" data-col="2"></td>
+                  <td data-row="2" data-col="3">2.1</td>
+                  <td data-row="2" data-col="4">0.3</td>
+                  <td data-row="2" data-col="5">2.5</td>
+                  <td data-row="2" data-col="6">0.0</td>
+                  <td data-row="2" data-col="7">3.4</td>
+                  <td data-row="2" data-col="8">0.5</td>
+                  <td data-row="2" data-col="9">5.1</td>
+                  <td data-row="2" data-col="10">0.6</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1"></td>
+                  <td data-row="3" data-col="2"></td>
+                  <td data-row="3" data-col="3">N</td>
+                  <td data-row="3" data-col="4">Pct.</td>
+                  <td data-row="3" data-col="5">N</td>
+                  <td data-row="3" data-col="6">Pct.</td>
+                  <td data-row="3" data-col="7">N</td>
+                  <td data-row="3" data-col="8">Pct.</td>
+                  <td data-row="3" data-col="9">N</td>
+                  <td data-row="3" data-col="10">Pct.</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">Class</td>
+                  <td data-row="4" data-col="2">2seater</td>
+                  <td data-row="4" data-col="3">0</td>
+                  <td data-row="4" data-col="4">0.0</td>
+                  <td data-row="4" data-col="5">0</td>
+                  <td data-row="4" data-col="6">0.0</td>
+                  <td data-row="4" data-col="7">0</td>
+                  <td data-row="4" data-col="8">0.0</td>
+                  <td data-row="4" data-col="9">5</td>
+                  <td data-row="4" data-col="10">7.1</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1"></td>
+                  <td data-row="5" data-col="2">compact</td>
+                  <td data-row="5" data-col="3">32</td>
+                  <td data-row="5" data-col="4">39.5</td>
+                  <td data-row="5" data-col="5">2</td>
+                  <td data-row="5" data-col="6">50.0</td>
+                  <td data-row="5" data-col="7">13</td>
+                  <td data-row="5" data-col="8">16.5</td>
+                  <td data-row="5" data-col="9">0</td>
+                  <td data-row="5" data-col="10">0.0</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2">midsize</td>
+                  <td data-row="6" data-col="3">16</td>
+                  <td data-row="6" data-col="4">19.8</td>
+                  <td data-row="6" data-col="5">0</td>
+                  <td data-row="6" data-col="6">0.0</td>
+                  <td data-row="6" data-col="7">23</td>
+                  <td data-row="6" data-col="8">29.1</td>
+                  <td data-row="6" data-col="9">2</td>
+                  <td data-row="6" data-col="10">2.9</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1"></td>
+                  <td data-row="7" data-col="2">minivan</td>
+                  <td data-row="7" data-col="3">1</td>
+                  <td data-row="7" data-col="4">1.2</td>
+                  <td data-row="7" data-col="5">0</td>
+                  <td data-row="7" data-col="6">0.0</td>
+                  <td data-row="7" data-col="7">10</td>
+                  <td data-row="7" data-col="8">12.7</td>
+                  <td data-row="7" data-col="9">0</td>
+                  <td data-row="7" data-col="10">0.0</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1"></td>
+                  <td data-row="8" data-col="2">pickup</td>
+                  <td data-row="8" data-col="3">3</td>
+                  <td data-row="8" data-col="4">3.7</td>
+                  <td data-row="8" data-col="5">0</td>
+                  <td data-row="8" data-col="6">0.0</td>
+                  <td data-row="8" data-col="7">10</td>
+                  <td data-row="8" data-col="8">12.7</td>
+                  <td data-row="8" data-col="9">20</td>
+                  <td data-row="8" data-col="10">28.6</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1"></td>
+                  <td data-row="9" data-col="2">subcompact</td>
+                  <td data-row="9" data-col="3">21</td>
+                  <td data-row="9" data-col="4">25.9</td>
+                  <td data-row="9" data-col="5">2</td>
+                  <td data-row="9" data-col="6">50.0</td>
+                  <td data-row="9" data-col="7">7</td>
+                  <td data-row="9" data-col="8">8.9</td>
+                  <td data-row="9" data-col="9">5</td>
+                  <td data-row="9" data-col="10">7.1</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1"></td>
+                  <td data-row="10" data-col="2">suv</td>
+                  <td data-row="10" data-col="3">8</td>
+                  <td data-row="10" data-col="4">9.9</td>
+                  <td data-row="10" data-col="5">0</td>
+                  <td data-row="10" data-col="6">0.0</td>
+                  <td data-row="10" data-col="7">16</td>
+                  <td data-row="10" data-col="8">20.3</td>
+                  <td data-row="10" data-col="9">38</td>
+                  <td data-row="10" data-col="10">54.3</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
 </section>
-<section id="results" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="results"><span class="header-section-number">3.3</span> Results</h2>
+<section id="results" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="results"><span class="header-section-number">3.4</span> Results</h2>
+<p>In this section, you present the results of the methods that you outlined in the previous section. This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.</p>
+<p>For example <a href="#fig-reg" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> shows the data from a regression model like the one described in <a href="#eq-reg" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>. Axes should be clearly labeled with any relevant units. I prefer the <code>theme_bw</code> function from the <code>ggplot2</code> package to make my figures look nice, with colors for continuous data from the <a href="https://sjmgarnier.github.io/viridis/"><code>viridis</code></a> package and colors for categorical data from the <a href="https://github.com/karthik/wesanderson"><code>wesanderson</code></a> package. Figure captions are sentences that describe the figure. They generally come below the figure, but Quarto or LaTeX will handle this for you.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">"Class"</span>, <span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">"Zissou1"</span>, <span class="dv">7</span>, <span class="at">type =</span> <span class="st">"continuous"</span>)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Engine Displacement (liters)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Highway Miles per Gallon (mpg)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-reg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="writing_files/figure-html/fig-reg-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Relationship between engine displacement and vehicle fuel efficiency.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#tbl-reg" class="quarto-xref">Table&nbsp;<span>3.2</span></a> shows the estimated regression coefficients for the model described in <a href="#eq-reg" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(hwy <span class="sc">~</span> displ <span class="sc">+</span> class, <span class="at">data =</span> mpg)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>coefmap <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Intercept"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"displ"</span> <span class="ot">=</span> <span class="st">"Engine Displacement [liters]"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classcompact"</span> <span class="ot">=</span> <span class="st">"Class: Compact"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classmidsize"</span> <span class="ot">=</span> <span class="st">"Class: Midsize"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classminivan"</span> <span class="ot">=</span> <span class="st">"Class: Minivan"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classsubcompact"</span> <span class="ot">=</span> <span class="st">"Class: Subcompact"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classsuv"</span> <span class="ot">=</span> <span class="st">"Class: SUV"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"classpickup"</span> <span class="ot">=</span> <span class="st">"Class: Pickup"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(lm, <span class="at">coef_rename =</span> coefmap)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-reg" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: Regression Estimates
+</figcaption>
+<div aria-describedby="tbl-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_yeazbz8wmp1tbcsfnyit = TinyTable.createTableFunctions("tinytable_yeazbz8wmp1tbcsfnyit");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '23', j: 2 } ], css_id: 'tinytable_css_3yan5txd32qy1uo7bgra',}, 
+          { positions: [ { i: '16', j: 2 } ], css_id: 'tinytable_css_na45h35qkhvvum14aztv',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 } ], css_id: 'tinytable_css_1jtd0grg19mybgb01dnu',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_1a4mi7l0dgysdpk51bev',}, 
+          { positions: [ { i: '23', j: 1 } ], css_id: 'tinytable_css_ldfrsqda6dpozdlh7q08',}, 
+          { positions: [ { i: '16', j: 1 } ], css_id: 'tinytable_css_b6hlism023fngbrr9seu',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 } ], css_id: 'tinytable_css_r1rtg7plaxw44qgbyva4',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_xfe4tpnu340gn4n7orjz',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_yeazbz8wmp1tbcsfnyit.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_3yan5txd32qy1uo7bgra, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_3yan5txd32qy1uo7bgra {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_na45h35qkhvvum14aztv, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_na45h35qkhvvum14aztv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_1jtd0grg19mybgb01dnu, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_1jtd0grg19mybgb01dnu { text-align: center }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_1a4mi7l0dgysdpk51bev, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_1a4mi7l0dgysdpk51bev {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_ldfrsqda6dpozdlh7q08, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_ldfrsqda6dpozdlh7q08 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_b6hlism023fngbrr9seu, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_b6hlism023fngbrr9seu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_r1rtg7plaxw44qgbyva4, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_r1rtg7plaxw44qgbyva4 { text-align: left }
+    #tinytable_yeazbz8wmp1tbcsfnyit td.tinytable_css_xfe4tpnu340gn4n7orjz, #tinytable_yeazbz8wmp1tbcsfnyit th.tinytable_css_xfe4tpnu340gn4n7orjz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_yeazbz8wmp1tbcsfnyit" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">(1)</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Intercept</td>
+                  <td data-row="1" data-col="2">38.953</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">(1.798)</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Engine Displacement [liters]</td>
+                  <td data-row="3" data-col="2">-2.298</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">(0.213)</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">Class: Compact</td>
+                  <td data-row="5" data-col="2">-5.312</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2">(1.528)</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">Class: Midsize</td>
+                  <td data-row="7" data-col="2">-4.947</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1"></td>
+                  <td data-row="8" data-col="2">(1.472)</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">Class: Minivan</td>
+                  <td data-row="9" data-col="2">-8.799</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1"></td>
+                  <td data-row="10" data-col="2">(1.594)</td>
+                </tr>
+                <tr>
+                  <td data-row="11" data-col="1">Class: Pickup</td>
+                  <td data-row="11" data-col="2">-11.923</td>
+                </tr>
+                <tr>
+                  <td data-row="12" data-col="1"></td>
+                  <td data-row="12" data-col="2">(1.369)</td>
+                </tr>
+                <tr>
+                  <td data-row="13" data-col="1">Class: Subcompact</td>
+                  <td data-row="13" data-col="2">-4.699</td>
+                </tr>
+                <tr>
+                  <td data-row="14" data-col="1"></td>
+                  <td data-row="14" data-col="2">(1.510)</td>
+                </tr>
+                <tr>
+                  <td data-row="15" data-col="1">Class: SUV</td>
+                  <td data-row="15" data-col="2">-10.585</td>
+                </tr>
+                <tr>
+                  <td data-row="16" data-col="1"></td>
+                  <td data-row="16" data-col="2">(1.327)</td>
+                </tr>
+                <tr>
+                  <td data-row="17" data-col="1">Num.Obs.</td>
+                  <td data-row="17" data-col="2">234</td>
+                </tr>
+                <tr>
+                  <td data-row="18" data-col="1">R2</td>
+                  <td data-row="18" data-col="2">0.794</td>
+                </tr>
+                <tr>
+                  <td data-row="19" data-col="1">R2 Adj.</td>
+                  <td data-row="19" data-col="2">0.787</td>
+                </tr>
+                <tr>
+                  <td data-row="20" data-col="1">AIC</td>
+                  <td data-row="20" data-col="2">1146.5</td>
+                </tr>
+                <tr>
+                  <td data-row="21" data-col="1">BIC</td>
+                  <td data-row="21" data-col="2">1177.6</td>
+                </tr>
+                <tr>
+                  <td data-row="22" data-col="1">Log.Lik.</td>
+                  <td data-row="22" data-col="2">-564.259</td>
+                </tr>
+                <tr>
+                  <td data-row="23" data-col="1">RMSE</td>
+                  <td data-row="23" data-col="2">2.70</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
 </section>
-<section id="discussion-and-limitations" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="discussion-and-limitations"><span class="header-section-number">3.4</span> Discussion and Limitations</h2>
+<section id="discussion-and-limitations" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="discussion-and-limitations"><span class="header-section-number">3.5</span> Discussion and Limitations</h2>
+<p>In this section, you discuss the significance of your results in the context of the problem that you set out to work on. There will often be limitations in your study, and you should candidly discuss them while providing avenues for future research that you or others will work on.</p>
 </section>
-<section id="conclusion" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.5</span> Conclusion</h2>
+<section id="conclusion" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.6</span> Conclusion</h2>
+<p>This is often a short section. In this section, you summarize your results and discuss the implications of your work.</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>This is advice from Dan Ames<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->

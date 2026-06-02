@@ -22,51 +22,51 @@
   {
     "objectID": "onboarding.html",
     "href": "onboarding.html",
-    "title": "1  Onboarding",
+    "title": "1  Onboarding and Working",
     "section": "",
-    "text": "1.1 Working hours\nThe process to onboard in my lab is:\nWhen I hire you I will state expectations for a weekly commitment. This is typically:\nYou may work whatever hours you choose, with the exception of the weekly lab meeting, any weekly project team meetings or project sponsor calls. That said, I strongly recommend you schedule a regular time to dedicate to the research projects you are working on. The most effective students treat courses plus research as a full-time job, arriving at the lab in the morning and working there on courses and research until they leave in the evening. Other commitments might easily crowd out the time for your research if you do not prioritize the time. Also, I want to pay you! But I can’t if you don’t put in time.\nI strongly recommend that students who work for me as a research assistant quit any other research assistance, internship, or other external employment. If your employment with me will not fill your time, speak with me about this situation.",
+    "text": "1.1 Vikunja\nThe process to onboard in my lab is:\nThe tasks in your onboarding project will connect you with the following resources (beyond Vikunja)\nI use Vikunja for task management. Vikunja is a web-based task management system that allows us to track progress on projects, assign tasks to team members, and log milestones.\nA couple of notes about using Vikunja in my lab:\nThe Vikunja manual is here: https://vikunja.io/help/ The manual contains lots of good tips on setting up filters, arranging tasks, and using Vikunja in general.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding and Working</span>"
     ]
   },
   {
-    "objectID": "onboarding.html#working-hours",
-    "href": "onboarding.html#working-hours",
-    "title": "1  Onboarding",
+    "objectID": "onboarding.html#vikunja",
+    "href": "onboarding.html#vikunja",
+    "title": "1  Onboarding and Working",
     "section": "",
-    "text": "Undergraduates: 5-10 hours per week\nGraduate student academic year: 10-20 hours per week\nGraduate student Spring/Summer: 20-30 hours per week",
+    "text": "I am hosting this myself instead of paying lots of money for a commercial service. This means that we have a disk limit; please do not post images into discussions on Vikunja. Instead, you can host images on imgur and link to them in your Vikunja discussions.\nThere is a limit on how many emails the system can send each month. This is why you should turn off your email notifications from vikunja. But you should bookmark the page or do other things so that you don’t miss or forget tasks.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding and Working</span>"
     ]
   },
   {
-    "objectID": "onboarding.html#communication",
-    "href": "onboarding.html#communication",
-    "title": "1  Onboarding",
-    "section": "1.2 Communication",
-    "text": "1.2 Communication\nI use Teams for almost all lab-related communication. Please install the Teams app on your phone and your computer. I expect you to respond to messages within a reasonable amount of time, but I never expect you to respond while you are with your families or other times when you are not working.\nIf you would like to reach me with a message, use Teams.\nIf you would like to meet with me in person about a brief issue, please schedule an office hour appointment using Calendly. If you would like to schedule a longer meeting with me, please schedule a research meeting appointment using Calendly.",
+    "objectID": "onboarding.html#working",
+    "href": "onboarding.html#working",
+    "title": "1  Onboarding and Working",
+    "section": "1.2 Working",
+    "text": "1.2 Working\nWhen I hire you I will state expectations for a weekly commitment. This is typically:\n\nUndergraduate academic year: 5-10 hours per week\nUndergraduate summer: 10-20 hours per week\nGraduate student academic year: 10-20 hours per week\nGraduate student Spring/Summer: 30+ hours per week\n\nYou may work whatever hours you choose, with the exception of the weekly lab meeting, any weekly project team meetings or project sponsor calls. That said, I strongly recommend you schedule a regular time to dedicate to the research projects you are working on. The most effective students treat courses plus research as a full-time job, arriving at the lab in the morning and working there on courses and research until they leave in the evening. Other commitments might easily crowd out the time for your research if you do not prioritize the time. Also, I want to pay you! But I can’t if you don’t put in time.\nI strongly recommend that students who work for me as a research assistant quit any other research assistance, internship, or other external employment. If your employment with me will not fill your time, speak with me about this situation.\n\n1.2.1 Wages\nStudents in my lab have their wages determined by skill and seniority, following the basic outlines of the BYU hourly pay scale. Each semester I will evaluate student work and give raises as appropriate.\nIf you believe you merit a raise or there are needs in your family that might necessitate a higher wage, please speak to me. I’ll do what I can.\n\n\n1.2.2 Holidays\nBYU has a policy that students who work on university holidays are paid overtime. If you intend to work hours on a holiday (days marked with H on the university calendar), you must clear it with me in advance.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding and Working</span>"
     ]
   },
   {
-    "objectID": "onboarding.html#wages",
-    "href": "onboarding.html#wages",
-    "title": "1  Onboarding",
-    "section": "1.3 Wages",
-    "text": "1.3 Wages\nStudents in my lab have their wages determined by skill and seniority, following the basic outlines of the BYU hourly pay scale. Each semester I will evaluate student work and give raises as appropriate.\nIf you believe you merit a raise or there are needs in your family that might necessitate a higher wage, please speak to me. I’ll do what I can.",
+    "objectID": "onboarding.html#teams",
+    "href": "onboarding.html#teams",
+    "title": "1  Onboarding and Working",
+    "section": "1.3 Teams",
+    "text": "1.3 Teams\nI use Teams for all lab-related communication. Please install the Teams app on your phone and your computer. I expect you to respond to messages within a reasonable amount of time, but I never expect you to respond while you are with your families or other times when you are not working.\nIf you would like to reach me with a message, use Teams.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding and Working</span>"
     ]
   },
   {
-    "objectID": "onboarding.html#footnotes",
-    "href": "onboarding.html#footnotes",
-    "title": "1  Onboarding",
-    "section": "",
-    "text": "This can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever. Just not a blank image.↩︎\nThis can be a photograph of you, a heavily edited photo, a drawing by your niece, whatever. Just not the default block avatar.↩︎",
+    "objectID": "onboarding.html#github",
+    "href": "onboarding.html#github",
+    "title": "1  Onboarding and Working",
+    "section": "1.4 GitHub",
+    "text": "1.4 GitHub\nGitHub (and Git) is a tool for tracking changes to code and other text files. More details on using GitHub are available in Chapter 2.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Onboarding and Working</span>"
     ]
   },
   {
@@ -154,17 +154,27 @@
     "href": "writing.html",
     "title": "3  Writing",
     "section": "",
-    "text": "3.1 Introduction and Literature Review\nSo, the time has come to write your thesis or report! How do you do this?\nYour introduction should follow this general outline1:\nThe first three bullets generally comprise the “literature review” of the paper. This is done by including ~15 important references to “back up” your assertions (Ames et al. 2012). Do not provide an annotated bibliography where you summarize the papers you cite; instead, you will make your assertions and use the references to give you credibility and validate your statements  (Gilbert 1977). Read the papers before citing them (Simkin and Roychowdhury 2002). Use the latest version of Zotero (www.zotero.org)  to add your citations. Finally, remember to cite several papers from the journal to which you are submitting this paper. Editors appreciate this because it improves their citation indices (Garfield 2006). Also, your reviewers are likely working in the same field and will appreciate their work being recognized. If you cannot find any relevant papers from the target journal, it is a good sign that you should submit to a different journal.",
+    "text": "3.1 Writing Style\nSo, the time has come to write your thesis or report! How do you do this? This section provides a couple of tips and tricks to help you write a good paper.\nYour writing should be consise and clear. The following tips will help you with this, but I do not intend for this list of tips to be exhaustive or to replace either a writing course or good editing.\nPlease read the handout on concision and clarity for more tips.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
   },
   {
-    "objectID": "writing.html#introduction-and-literature-review",
-    "href": "writing.html#introduction-and-literature-review",
+    "objectID": "writing.html#writing-style",
+    "href": "writing.html#writing-style",
     "title": "3  Writing",
     "section": "",
-    "text": "What is the big-picture problem? (e.g., “Flooding is a major global problem.”)\nWhat is the specific problem we are interested in? (e.g., “We need better flooding models.”)\nWhat has been done already? (e.g., “The National Water Model and GEOGLOWS model flooding in these ways:”)\nWhat are the gaps in the science? (e.g., “The National Water Model under-predicts in snow-driven landscapes.”)\nWhat is our research plan? (e.g., “We will build and test a snow model to integrate into the National Water Model.”)\n\n\n\n3.1.1 Citations\nUse Zotero",
+    "text": "Use active voice. Active voice is easier to read and is more natural. For example, instead of saying “The data was analyzed,” say “We analyzed the data.” Pay attention to the actor in a sentence as well: it is unusual for a measurement device to actually collect the measurement; rather, the analyst uses a device to collect the measurement.\nPronouns are fine, in moderation. Some engineering writing manuals recommend avoiding pronouns, but doing this makes it hard to use active voice. Avoid informal language, but a sentence like “In this paper, we present a new method to” is perfectly fine. Bue if every sentence in the paper uses a pronoun, you should think about varying your writing style.\nPrefer present tense. Generally, the voice of your writing should be as though you are presenting the findings at the time the reader is reading. For example, instead of saying “The data revealed that…” say “The data reveal” or “We find that…” Exceptions to this include when you are describing a completed data collection process, “We collected the data at these sites on these days.”\nLink ideas in a coherent way. If one sentence describes how A leads to B, then the next sentence had better describe how B leads to C. If the next sentence is something about D, then your reader will be lost.\nDon’t create unneeded acronyms. Acronyms are helpful for consolidating complex ideas in a concise way. But over-use of acronyms, particularly ones you define yourself, tends to make text unreadable. Generally, if an acronym doesn’t already exist, you shouldn’t make a new one. DOT, OLS, MNL, MCMC, FHWA, etc. are all well-known acronyms that you should use (after defining on first use). Writing a paper about urban green spaces? Just call them urban green spaces because UGS isn’t a common acronym.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
+    ]
+  },
+  {
+    "objectID": "writing.html#paper-outline",
+    "href": "writing.html#paper-outline",
+    "title": "3  Writing",
+    "section": "3.2 Paper Outline",
+    "text": "3.2 Paper Outline\nWriting in this discipline generally follows the IMRD guidelines. One deviation is that most papers in my fields generally contain a somewhat longer literature review. So, we write like an ILMRD paper.\n\n3.2.1 Introduction\nEffective introductions are often four paragraphs:\n\nBig problem (motivation) Understanding how individuals make travel decisions is essential for addressing pressing transportation challenges such as congestion, emissions, and inequitable access to opportunities.\nNarrow problem and limitations of prior work (research gap) Although previous studies have improved our understanding of travel behavior, most rely on cross-sectional data and therefore provide limited insight into how individuals adapt their travel choices over time.\nCurrent study and contribution (what this paper does) This study addresses these limitations by leveraging longitudinal travel survey data to examine how changes in household circumstances influence mode choice behavior.\nPaper outline (roadmap) The remainder of this paper reviews the relevant literature, describes the data and methods, presents the empirical results, and discusses implications for transportation planning and policy.\n\nSometimes points 1 or 2 will be more than one strict paragraph.\n\n\n3.2.2 Literature Review\nThe literature review effectively restates points 1 and 2 of the Introduction, but with considerably more detail and references.\nThis is not simply an annotated bibliography where you summarize the papers you have cited; instead, the literature review is a critical persuasive analysis of what has been done, what its limitations are, and how a new study — presumably yours — can improve on it. By citing relevant work, you establish your own credibility and illustrate how you are not just doing this because you thought it was interesting, but are making a substantive contribution to the field. you will make your assertions and use the references to give you credibility and validate your statements. Read papers before citing them (simkin2002readcite?), at least to the point where you can summarize their key methods and findings.\nUse the latest version of Zotero  to organize your citations and notes. I will probably set up a shared library for you. Use the zotero citation editor, or quarto citations.\nRemember to cite several papers from the journal to which you are submitting this paper. If you cannot find any relevant papers from the target journal, it is a good sign that you should submit to a different journal.\nThe last paragraph of the literature review should clearly identify the gap your research is trying to fill.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
@@ -173,8 +183,8 @@
     "objectID": "writing.html#methodology",
     "href": "writing.html#methodology",
     "title": "3  Writing",
-    "section": "3.2 Methodology",
-    "text": "3.2 Methodology",
+    "section": "3.3 Methodology",
+    "text": "3.3 Methodology\nIn this section, you describe your approach to the problem that you are addressing. Often, this section will contain more citations to the literature, particularly if you are using a model that someone else has developed, or a dataset that someone else has collected. In general, you should describe the process in sufficient detail that someone else could replicate your work if they had access to the same data and code.\nThis is the section with the most mathematics. Use numbered equation environments, and define all terms. For example, the standard linear model is described as\n\\[\ny = X\\beta + \\epsilon\n\\tag{3.1}\\]\nwhere \\(y\\) is the dependent variable, \\(X\\) is a matrix of independent variables, \\(\\beta\\) is the vector of coefficients, \\(\\epsilon\\) is the error term. Equations are part of the text, and do not “float” like figures or tables. As such, you do not need to “introduce” equations with their number. But if you refer to them again, you should reference them, like the regression model described in Equation 3.1.\nYou should share your data and code as feasible. Include a reference to your project’s GitHub repository. If the data are public and you can fit them in the repository, put them there.\nFigures and tables should be numbered and referenced in the text. Table captions are titles, and not sentences like figures. Captions are placed above the table, but Quarto or LaTeX will handle this for you. Tables generally have only horizontal lines, and only the lines that are critical to separate blocks of information. I like using the modelsummary package to make tables. Use publication-ready names instead of the variable names in your table.\n\ndatasummary_balance(~ Cylinders, dinm = FALSE,\n  data = mpg |&gt; \n    select(\"Miles per Gallon\" = hwy, \"Engine Displacmeent (liters)\" = displ, \"Cylinders\" = cyl, \"Class\" = class) \n)\n\n\n\nTable 3.1: Data Summary by Cylinders\n\n\n\n\n\n    \n\n    \n\n    \n    \n    \n      \n        \n        \n\n \n \n4\n5\n6\n8\n\n              \n                 \n                  \n                Mean\n                Std. Dev.\n                Mean\n                Std. Dev.\n                Mean\n                Std. Dev.\n                Mean\n                Std. Dev.\n              \n        \n        \n        \n                \n                  Miles per Gallon\n                  \n                  28.8\n                  4.5\n                  28.8\n                  0.5\n                  22.8\n                  3.7\n                  17.6\n                  3.3\n                \n                \n                  Engine Displacmeent (liters)\n                  \n                  2.1\n                  0.3\n                  2.5\n                  0.0\n                  3.4\n                  0.5\n                  5.1\n                  0.6\n                \n                \n                  \n                  \n                  N\n                  Pct.\n                  N\n                  Pct.\n                  N\n                  Pct.\n                  N\n                  Pct.\n                \n                \n                  Class\n                  2seater\n                  0\n                  0.0\n                  0\n                  0.0\n                  0\n                  0.0\n                  5\n                  7.1\n                \n                \n                  \n                  compact\n                  32\n                  39.5\n                  2\n                  50.0\n                  13\n                  16.5\n                  0\n                  0.0\n                \n                \n                  \n                  midsize\n                  16\n                  19.8\n                  0\n                  0.0\n                  23\n                  29.1\n                  2\n                  2.9\n                \n                \n                  \n                  minivan\n                  1\n                  1.2\n                  0\n                  0.0\n                  10\n                  12.7\n                  0\n                  0.0\n                \n                \n                  \n                  pickup\n                  3\n                  3.7\n                  0\n                  0.0\n                  10\n                  12.7\n                  20\n                  28.6\n                \n                \n                  \n                  subcompact\n                  21\n                  25.9\n                  2\n                  50.0\n                  7\n                  8.9\n                  5\n                  7.1\n                \n                \n                  \n                  suv\n                  8\n                  9.9\n                  0\n                  0.0\n                  16\n                  20.3\n                  38\n                  54.3",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
@@ -183,8 +193,8 @@
     "objectID": "writing.html#results",
     "href": "writing.html#results",
     "title": "3  Writing",
-    "section": "3.3 Results",
-    "text": "3.3 Results",
+    "section": "3.4 Results",
+    "text": "3.4 Results\nIn this section, you present the results of the methods that you outlined in the previous section. This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.\nFor example Figure 3.1 shows the data from a regression model like the one described in Equation 3.1. Axes should be clearly labeled with any relevant units. I prefer the theme_bw function from the ggplot2 package to make my figures look nice, with colors for continuous data from the viridis package and colors for categorical data from the wesanderson package. Figure captions are sentences that describe the figure. They generally come below the figure, but Quarto or LaTeX will handle this for you.\n\nggplot(data = mpg, aes(x = displ, y = hwy, color = class)) + \n  geom_point() + theme_bw() + \n  stat_smooth(method = \"lm\", color = \"black\", size = 0.5) +\n  scale_color_manual(\"Class\", values = wes_palette(\"Zissou1\", 7, type = \"continuous\")) +\n  xlab(\"Engine Displacement (liters)\") + ylab(\"Highway Miles per Gallon (mpg)\")\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nFigure 3.1: Relationship between engine displacement and vehicle fuel efficiency.\n\n\n\n\n\nTable 3.2 shows the estimated regression coefficients for the model described in Equation 3.1.\n\nlm &lt;- lm(hwy ~ displ + class, data = mpg)\ncoefmap &lt;- c(\n    \"(Intercept)\" = \"Intercept\",\n    \"displ\" = \"Engine Displacement [liters]\",\n    \"classcompact\" = \"Class: Compact\",\n    \"classmidsize\" = \"Class: Midsize\",\n    \"classminivan\" = \"Class: Minivan\",\n    \"classsubcompact\" = \"Class: Subcompact\",\n    \"classsuv\" = \"Class: SUV\",\n    \"classpickup\" = \"Class: Pickup\"\n)\nmodelsummary(lm, coef_rename = coefmap)\n\n\n\nTable 3.2: Regression Estimates\n\n\n\n\n\n    \n\n    \n\n    \n    \n    \n      \n        \n        \n              \n                 \n                (1)\n              \n        \n        \n        \n                \n                  Intercept\n                  38.953\n                \n                \n                  \n                  (1.798)\n                \n                \n                  Engine Displacement [liters]\n                  -2.298\n                \n                \n                  \n                  (0.213)\n                \n                \n                  Class: Compact\n                  -5.312\n                \n                \n                  \n                  (1.528)\n                \n                \n                  Class: Midsize\n                  -4.947\n                \n                \n                  \n                  (1.472)\n                \n                \n                  Class: Minivan\n                  -8.799\n                \n                \n                  \n                  (1.594)\n                \n                \n                  Class: Pickup\n                  -11.923\n                \n                \n                  \n                  (1.369)\n                \n                \n                  Class: Subcompact\n                  -4.699\n                \n                \n                  \n                  (1.510)\n                \n                \n                  Class: SUV\n                  -10.585\n                \n                \n                  \n                  (1.327)\n                \n                \n                  Num.Obs.\n                  234\n                \n                \n                  R2\n                  0.794\n                \n                \n                  R2 Adj.\n                  0.787\n                \n                \n                  AIC\n                  1146.5\n                \n                \n                  BIC\n                  1177.6\n                \n                \n                  Log.Lik.\n                  -564.259\n                \n                \n                  RMSE\n                  2.70",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
@@ -193,8 +203,8 @@
     "objectID": "writing.html#discussion-and-limitations",
     "href": "writing.html#discussion-and-limitations",
     "title": "3  Writing",
-    "section": "3.4 Discussion and Limitations",
-    "text": "3.4 Discussion and Limitations",
+    "section": "3.5 Discussion and Limitations",
+    "text": "3.5 Discussion and Limitations\nIn this section, you discuss the significance of your results in the context of the problem that you set out to work on. There will often be limitations in your study, and you should candidly discuss them while providing avenues for future research that you or others will work on.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
@@ -203,18 +213,8 @@
     "objectID": "writing.html#conclusion",
     "href": "writing.html#conclusion",
     "title": "3  Writing",
-    "section": "3.5 Conclusion",
-    "text": "3.5 Conclusion",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
-    ]
-  },
-  {
-    "objectID": "writing.html#footnotes",
-    "href": "writing.html#footnotes",
-    "title": "3  Writing",
-    "section": "",
-    "text": "This is advice from Dan Ames↩︎",
+    "section": "3.6 Conclusion",
+    "text": "3.6 Conclusion\nThis is often a short section. In this section, you summarize your results and discuss the implications of your work.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Writing</span>"
     ]
