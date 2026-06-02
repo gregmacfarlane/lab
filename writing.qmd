@@ -56,8 +56,11 @@ references to give you credibility and validate your statements.
 Read papers before citing them [@simkin2002readcite], at least to the point where you can summarize
 their key methods and findings. 
 
+
 Use the latest version of [Zotero](https://zotero.org)  to organize your citations
 and notes. I will probably set up a shared library for you. Use the zotero citation editor, or quarto citations.
+
+I prefer to use author-year citations, as are common in the APA guidelines. Pay attention whether the citation is in the text or parenthetical. If you use a citation manager correctly, changing the citation style is relatively easy.
 
 Remember to cite several papers from the journal to which you are
 submitting this paper. If you cannot find any relevant papers from the target
@@ -66,7 +69,7 @@ journal, it is a good sign that you should submit to a different journal.
 The last paragraph of the literature review should clearly identify the gap your
 research is trying to fill.
 
-## Methodology
+### Methodology
 In this section, you describe your approach to the problem that you are addressing. Often, this section will contain more citations to the literature, particularly if you are using a model that someone else has developed, or a dataset that someone else has collected. In general, you should describe the process in sufficient detail that someone else could replicate your work if they had access to the same data and code.
 
 This is the section with the most mathematics. Use numbered equation environments, and define all terms. For example, the standard linear model is described as 
@@ -92,7 +95,7 @@ datasummary_balance(~ Cylinders, dinm = FALSE,
 )
 ```
 
-## Results
+### Results
 In this section, you present the results of the methods that you outlined in the previous section.
 This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.
 
@@ -130,10 +133,15 @@ modelsummary(lm, coef_rename = coefmap)
 ```
 
 
-## Discussion and Limitations
+### Discussion and Limitations
 
 In this section, you discuss the significance of your results in the context of the problem that you set out to work on. There will often be limitations in your study, and you should candidly discuss them while providing avenues for future research that you or others will work on.
 
-## Conclusion
+### Conclusion
 
 This is often a short section. In this section, you summarize your results and discuss the implications of your work. 
+
+
+## Template
+
+I have made a quarto template that integrates the above sections into a document that can be rendered to a PDF of your thesis or a journal article. You can find this at <https://github.com/byu-transpolab/template_quarto>. 
