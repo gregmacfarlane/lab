@@ -1,37 +1,139 @@
 # Writing
+```{r setup, include=FALSE}
+library(tidyverse)
+library(modelsummary)
+library(wesanderson)
+```
 
-So, the time has come to write your thesis or report! How do you do this?
+So, the time has come to write your thesis or report! How do you do this? This section provides a couple of tips and tricks to help you write a good paper.
 
-## Introduction and Literature Review
-Your introduction should follow this general outline^[This is advice from Dan Ames]:
+## Writing Style
 
-1. What is the big-picture problem? (e.g., “Flooding is a major global problem.”)
-2. What is the specific problem we are interested in? (e.g., “We need better flooding models.”)
-3. What has been done already? (e.g., “The National Water Model and GEOGLOWS model flooding in these ways:”)
-4. What are the gaps in the science? (e.g., “The National Water Model under-predicts in snow-driven landscapes.”)
-5. What is our research plan? (e.g., “We will build and test a snow model to integrate into the National Water Model.”)
+Your writing should be consise and clear. The following tips will help you with this, but I do not intend for this list of tips to be exhaustive or to replace either a writing course or good editing.
 
-The first three bullets generally comprise the “literature review” of the paper.
-This is done by including ~15 important references to “back up” your assertions
-(Ames et al. 2012). Do not provide an annotated bibliography where you summarize
-the papers you cite; instead, you will make your assertions and use the
-references to give you credibility and validate your statements  (Gilbert 1977).
-Read the papers before citing them (Simkin and Roychowdhury 2002). Use the
-latest version of Zotero (www.zotero.org)  to add your citations. Finally,
-remember to cite several papers from the journal to which you are submitting
-this paper. Editors appreciate this because it improves their citation indices
-(Garfield 2006). Also, your reviewers are likely working in the same field and
-will appreciate their work being recognized. If you cannot find any relevant
-papers from the target journal, it is a good sign that you should submit to a
-different journal.
+1. **Use active voice.** Active voice is easier to read and is more natural. For example, instead of saying “The data was analyzed,” say “We analyzed the data.” Pay attention to the actor in a sentence as well: it is unusual for a measurement device to actually collect the measurement; rather, the analyst uses a device to collect the measurement.
+2. **Pronouns are fine, in moderation.** Some engineering writing manuals recommend avoiding pronouns, but doing this makes it hard to use active voice. Avoid informal language, but a sentence like "In this paper, we present a new method to" is perfectly fine. Bue if *every* sentence in the paper uses a pronoun, you should think about varying your writing style.
+3. **Prefer present tense.** Generally, the voice of your writing should be as though you are presenting the findings at the time the reader is reading. For example, instead of saying "The data revealed that..." say "The
+data reveal" or "We find that..." Exceptions to this include when you are describing a completed data collection process, "We collected the data at these sites on these days." 
+4. **Link ideas in a coherent way.** If one sentence describes how A leads to B, then the next sentence had better describe how B leads to C. If the next sentence is something about D, then your reader will be lost.
+5. **Don't create unneeded acronyms.** Acronyms are helpful for consolidating complex ideas in a concise way. But over-use of acronyms, particularly ones you define yourself, tends to make text unreadable. Generally, if an acronym doesn't already exist, you shouldn't make a new one. DOT, OLS, MNL, MCMC, FHWA, etc. are all well-known acronyms that you should use (after defining on first use). Writing a paper about urban green spaces? Just call them urban green spaces because UGS isn't a common acronym.
 
-### Citations
-Use [Zotero]()
+Please read the handout on [concision and clarity](https://rwc.byu.edu/writinghelp/clarity) for more tips.
+
+## Paper Outline
+Writing in this discipline generally follows the [IMRD guidelines](https://rwc.byu.edu/writinghelp/writing-in-the-sciences-imrd). One deviation is that most papers in my fields generally contain a somewhat longer
+literature review. So, we write like an ILMRD paper. 
+
+
+### Introduction 
+Effective introductions are often four paragraphs:
+
+1. Big problem (motivation)
+    *Understanding how individuals make travel decisions is essential for addressing pressing transportation challenges such as congestion, emissions, and inequitable access to opportunities.*
+2. Narrow problem and limitations of prior work (research gap)
+    *Although previous studies have improved our understanding of travel behavior, most rely on cross-sectional data and therefore provide limited insight into how individuals adapt their travel choices over time.*
+3. Current study and contribution (what this paper does)
+    *This study addresses these limitations by leveraging longitudinal travel survey data to examine how changes in household circumstances influence mode choice behavior.*
+4. Paper outline (roadmap)
+    *The remainder of this paper reviews the relevant literature, describes the data and methods, presents the empirical results, and discusses implications for transportation planning and policy.*
+
+
+Sometimes points 1 or 2 will be more than one strict paragraph. 
+
+### Literature Review
+The literature review effectively restates points 1 and 2 of the Introduction,
+but with considerably more detail and references.
+
+This is not simply an annotated bibliography where you summarize
+the papers you have cited; instead, the literature review is a critical persuasive analysis of
+what has been done, what its limitations are, and how a new study --- presumably
+yours --- can improve on it.
+By citing relevant work, you establish your own credibility and illustrate how you
+are not just doing this because you thought it was interesting, but are making a substantive
+contribution to the field.
+you will make your assertions and use the
+references to give you credibility and validate your statements.
+Read papers before citing them [@simkin2002readcite], at least to the point where you can summarize
+their key methods and findings. 
+
+Use the latest version of [Zotero](https://zotero.org)  to organize your citations
+and notes. I will probably set up a shared library for you. Use the zotero citation editor, or quarto citations.
+
+Remember to cite several papers from the journal to which you are
+submitting this paper. If you cannot find any relevant papers from the target
+journal, it is a good sign that you should submit to a different journal.
+
+The last paragraph of the literature review should clearly identify the gap your
+research is trying to fill.
 
 ## Methodology
+In this section, you describe your approach to the problem that you are addressing. Often, this section will contain more citations to the literature, particularly if you are using a model that someone else has developed, or a dataset that someone else has collected. In general, you should describe the process in sufficient detail that someone else could replicate your work if they had access to the same data and code.
+
+This is the section with the most mathematics. Use numbered equation environments, and define all terms. For example, the standard linear model is described as 
+
+$$ 
+y = X\beta + \epsilon 
+$$ {#eq-reg}
+
+where $y$ is the dependent variable, $X$ is a matrix of independent variables, $\beta$ is the vector of coefficients, $\epsilon$ is the error term. Equations are part of the text, and do not "float" like figures
+or tables. As such, you do not need to "introduce" equations with their number. But if you refer to them again, you should reference them, like the regression model described in @eq-reg.
+
+You should share your data and code as feasible. Include a reference to your project's GitHub repository.
+If the data are public and you can fit them in the repository, put them there.
+
+Figures and tables should be numbered and referenced in the text. Table captions are titles, and not sentences like figures. Captions are placed above the table, but Quarto or LaTeX will handle this for you. Tables generally have only horizontal lines, and only the lines that are critical to separate blocks of information. I like using the [`modelsummary`](https://modelsummary.com) package to make tables. Use publication-ready names instead of the variable names in your table.
+
+```{r}
+#| label: tbl-sum
+#| tbl-cap: Data Summary by Cylinders
+datasummary_balance(~ Cylinders, dinm = FALSE,
+  data = mpg |> 
+    select("Miles per Gallon" = hwy, "Engine Displacmeent (liters)" = displ, "Cylinders" = cyl, "Class" = class) 
+)
+```
 
 ## Results
+In this section, you present the results of the methods that you outlined in the previous section.
+This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.
+
+ For example @fig-reg shows the 
+data from a regression model like the one described in @eq-reg. Axes should be clearly labeled with any relevant units. I prefer the `theme_bw` function from the `ggplot2` package to make my figures look nice, with colors
+for continuous data from the [`viridis`](https://sjmgarnier.github.io/viridis/) package and colors for categorical data from the [`wesanderson`](https://github.com/karthik/wesanderson) package. Figure captions are sentences that describe the figure. They generally come below the figure, but Quarto or LaTeX will handle this for you.
+
+```{r}
+#| label: fig-reg
+#| fig-cap: Relationship between engine displacement and vehicle fuel efficiency.
+ggplot(data = mpg, aes(x = displ, y = hwy, color = class)) + 
+  geom_point() + theme_bw() + 
+  stat_smooth(method = "lm", color = "black", size = 0.5) +
+  scale_color_manual("Class", values = wes_palette("Zissou1", 7, type = "continuous")) +
+  xlab("Engine Displacement (liters)") + ylab("Highway Miles per Gallon (mpg)")
+```
+
+@tbl-reg shows the estimated regression coefficients for the model described in @eq-reg.
+
+```{r}
+#| label: tbl-reg
+#| tbl-cap: Regression Estimates
+lm <- lm(hwy ~ displ + class, data = mpg)
+coefmap <- c(
+    "(Intercept)" = "Intercept",
+    "displ" = "Engine Displacement [liters]",
+    "classcompact" = "Class: Compact",
+    "classmidsize" = "Class: Midsize",
+    "classminivan" = "Class: Minivan",
+    "classsubcompact" = "Class: Subcompact",
+    "classsuv" = "Class: SUV",
+    "classpickup" = "Class: Pickup"
+)
+modelsummary(lm, coef_rename = coefmap)
+```
+
 
 ## Discussion and Limitations
 
+In this section, you discuss the significance of your results in the context of the problem that you set out to work on. There will often be limitations in your study, and you should candidly discuss them while providing avenues for future research that you or others will work on.
+
 ## Conclusion
+
+This is often a short section. In this section, you summarize your results and discuss the implications of your work. 
