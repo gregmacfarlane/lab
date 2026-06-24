@@ -3,14 +3,10 @@
 Most of my academic work uses R and Quarto as a
 backbone. To summarize:
 
--   Create an R project as the hub of the project.
-
+-   Create an R project (or python project) as the hub of the project.
 -   Track the project development using git and GitHub. [Manual here](https://happygitwithr.com).
-
 -   Write a document in Quarto or Bookdown. [Manual here](https://quarto.org/docs/guide/).
-
 -   If heavy analysis is needed, use Targets. [Manual here](https://books.ropensci.org/targets/).
-
 -   If externally stored files are necessary, use Box.
 
 ## Motivation
@@ -18,18 +14,15 @@ backbone. To summarize:
 The goal of this workflow is to allow you to work effectively in my lab, and to
 ensure that I and future students (including yourself!) know where things are
 and can rebuild them if necessary. For example, a peer reviewer may ask for
-changes to the analysis many months after you are gone. If you follow this
+changes to the analysis many months or years after you are gone. If you follow this
 workflow, the chances of me being able to productively use your work increase.
 
 A workflow that you have probably used in the past consists of:
 
 -   Keep data in a spreadsheet (Excel)
-
 -   Do your analysis in the same spreadsheet
-
--   Copy a table or numbers from a spreadsheet into a document (Word)
-
 -   Write about the analysis in Word
+-   Copy a table or numbers from a spreadsheet into a document (Word)
 
 This workflow has its benefits, mainly simplicity. Excel definitely has its
 place. But there are *lots* of drawbacks.
@@ -49,13 +42,14 @@ calculation? Or what if you leave and another student has to figure out what you
 did? It would be better to have a reproducible document that re-builds itself
 whenever the analysis changes.
 
-This is the problem that R and R markdown solves. For example, I can embed R
-code into this document. I can load a library, read a dataset, and create a
-figure all at once.
+This is the problem that literate programing solves. This document is written in Quarto with 
+embedded R chunks. 
+For example, I can embed R code into this document. I can load a library, read a
+dataset, and create a figure all at once.
 
 ```{r first_plot}
 library(ggplot2)
-
+# x-y plot of mpg vs displacement
 ggplot(mpg, aes(displ, hwy, colour = class)) + 
   geom_point()
 ```
@@ -64,26 +58,22 @@ And if I tell you that I'd rather see a different figure, you can just change
 the code and it will print something different
 
 ```{r second_plot}
+# statistical density functions of mpg by class
 ggplot(mpg, aes(hwy, fill = class)) + 
   geom_density(alpha = 0.5) + theme_bw()
 ```
 
 So, how do you make this happen?
 
-## R Projects {#sec-r-projects}
+## Project Folders {#sec-r-projects}
 
-The basis of every project --- a paper, thesis, or report --- should be an R
-project. An R project is a folder associated with an `.Rproj` file that can be
-created and opened in R Studio. For an introduction to installing R and Rstudio,
-there is a [tutorial at
-DataCamp](https://www.datacamp.com/tutorial/r-studio-tutorial).
-
-The R project folder should be organized into these subfolders as follows:
+The basis of every project --- a paper, thesis, or report --- should be a folder. 
+This folder will contain data, scripts, code, and other files that you use to make the analysis. 
+Some folders will differ from project to project, but a common structure is:
 
 ```         
 <project>/
   - README.md
-  - <project.Rproj>
   - data/
   - R/
   - py/
@@ -107,8 +97,8 @@ The R project folder should be organized into these subfolders as follows:
 -   `py/` is a folder where you write your python scripts. Each script should be
     clearly named, e.g., `data_cleaning.py` .
 
-When you type a path in a script, it should reference its location *relative to
-the folder root*. So a script in `R/clean_data.R` might look like this:
+When you type a path in a script, it should reference its location 
+*relative to the project folder*. So a script in `R/clean_data.R` might look like this:
 
 ``` r
 # read data from folder
@@ -132,14 +122,10 @@ explanation.
 
 :::{.callout-note title="Training"}
 The LinkedIn Learning Course [R: Essential Training: Wrangling and Visualizing Data](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fr-essential-training-wrangling-and-visualizing-data%3Ftrk%3Dshare_ent_url%26shareId%3D079%252F6bFqRl2bLtOb519oUA%253D%253D)
-shows how to implement this folder structure and an R Studio project
+shows how to implement this folder structure in an R project
 
-For an introduction to installing R and R Studio, there is a [tutorial at DataCamp](https://www.datacamp.com/tutorial/r-studio-tutorial). Follow along
-with the tutorial if you are new to R and R Studio. It is also possible to
-use [VS Code](https://code.visualstudio.com) or [Positron](https://positron.posit.co) if you prefer.
-
-If you are curious about projects, [there is a helpful R Studio resource page](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) 
-with instructions on how they work.
+I prefer using [VS Code](https://code.visualstudio.com) or [Positron](https://positron.posit.co) as the text editor/IDE. Others 
+are fine as well.
 :::
 
 ## Git and GitHub
@@ -202,11 +188,12 @@ limit (and a 100 MB hard limit).
 BYU has given you free access to unlimited space on Box. I may create a folder
 that you use for a project, or you might create a folder and invite me to it.
 Folders should be organized with the same `data/` `README`, etc. file structure
-as described in [R Projects](#sec-r-projects).
+as described in [R Projects](#sec-r-projects). 
 
 If your project uses large data that cannot be stored in Git, I recommend
 including a script that will download a file from Box directly into your local
-`data/` folder.
+`data/` folder, and ignoring the downloaded file from Git to save space in the 
+repository.
 
 ## Quarto
 
@@ -233,7 +220,7 @@ extension, you can set up a template to make your BYU Engineering thesis in
 quarto.
 
 A linkedin Learning Course, 
-[Creating Reports and Presentations with R Markdown and RStudio](https://www.linkedin.com/learning-login/share?account=2153100&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcreating-reports-and-presentations-with-r-markdown-and-rstudio%3Ftrk%3Dshare_ent_url%26shareId%3D5bTcMu4SRjeGWItf4ZRuOQ%253D%253D)
+[Data Science Reporting with Quarto for Python](https://www.linkedin.com/learning/data-science-reporting-with-quarto-for-python/reporting-with-quarto-and-python?u=2153100)
 will help you learn these techniques. I prefer to use Quarto in 2025, but 
 many of the techniques and principles are the same.
 :::
@@ -319,8 +306,8 @@ fetch_file <- function(file){
 }
 ```
 
-The Box code must be the link for the direct download. Please [see the Box
-manual](https://support.box.com/hc/en-us/articles/360043697554-Configuring-Individual-Shared-Link-Settings)
+The Box code must be the link for the direct download. Please 
+[see the Box manual](https://support.box.com/hc/en-us/articles/360043697554-Configuring-Individual-Shared-Link-Settings)
 for instructions on creating and using this link.
 
 Note that you should not use the above method for data objects that must be
